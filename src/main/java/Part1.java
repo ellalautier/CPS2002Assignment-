@@ -8,7 +8,6 @@ public class Part1 {
     }
 
     public int subtract(int a, int b) {
-        //return a - b;
-        return 0;
+        return a - b;
     }
 }
