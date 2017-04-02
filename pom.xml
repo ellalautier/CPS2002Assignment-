@@ -3,9 +3,11 @@
   <groupId>mt.edu.um.cps2002</groupId>
   <artifactId>cps2002-assignment</artifactId>
   <version>1</version>
-  <dependency>
-    <groupId>junit</groupId>
-    <artifactId>junit</artifactId>
-    <version>4.12</version>
-  </dependency>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+    </dependency>
+  </dependencies>
 </project>
