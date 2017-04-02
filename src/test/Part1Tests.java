@@ -16,21 +16,21 @@ public class Part1Tests {
     @Test
     public void addTest(){
 
-        assertEquals(3, c.add(1,2));
-        assertEquals(10, c.add(5,5));
+        assertEquals(3, part1.add(1,2));
+        assertEquals(10, part1.add(5,5));
     }
 
     @Test
     public void subtractTest(){
 
-        assertEquals(-1, c.subtract(1,2));
-        assertEquals(2, c.subtract(6,4));
+        assertEquals(-1, part1.subtract(1,2));
+        assertEquals(2, part1.subtract(6,4));
     }
 
     @Test
     public void multiplyTest(){
 
-        assertEquals(0, c.multiply(2,0));
-        assertEquals(4, c.multiply(2,2));
+        assertEquals(0, part1.multiply(2,0));
+        assertEquals(4, part1.multiply(2,2));
     }
 }
