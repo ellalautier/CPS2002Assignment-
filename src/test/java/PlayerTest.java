@@ -9,6 +9,6 @@ public class PlayerTest {
 	
 	@Before
     public void setUp() {
-        part1 = new Player();
+        player = new Player();
     }
 }
