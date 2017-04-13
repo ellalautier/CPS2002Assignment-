@@ -3,7 +3,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
-
+/*
 public class PlayerTest {
 	private Player player;
 	int boardSize;
@@ -32,3 +32,6 @@ public class PlayerTest {
 	
 >>>>>>> 4bfda66e1030e4c30c034e4397415ba44dd41f2e
 }
+
+
+*/
