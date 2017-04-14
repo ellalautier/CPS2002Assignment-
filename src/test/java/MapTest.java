@@ -11,16 +11,12 @@ public class MapTest {
     @Before
     public void setup(){
         map = new Map();
-
-
     }
 
 
     @After
     public void teardown(){
-
     }
-
 
     //setMapSize
     @Test

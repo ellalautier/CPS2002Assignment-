@@ -8,4 +8,8 @@ public class Game {
         m.size = 30;
         m.generate();
     }
+
+    boolean setNumPlayers(int n) {
+        return true;
+    }
 }
