@@ -29,6 +29,15 @@ public class GameTest {
         assertTrue(game.setNumPlayers(5));
     }
 
+    @Test
+    public void testPlayersArrayLengthAfterSetNumPlayers() {
+        int numOfPlayers = 5;
+        game.setNumPlayers(numOfPlayers);
+        int actualLength = game.players.length;
+
+        assertEquals(numOfPlayers, actualLength);
+    }
+
     @After
     public void tearDown(){
         game = null;
