@@ -1,3 +1,6 @@
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 public class Game {
     int turns;
     Player[] players;
@@ -21,8 +24,30 @@ public class Game {
     }
 
     public static void main(String[] args){
+        Game game = new Game();
+        Scanner scanner = new Scanner(System.in);
+        int numOfPlayers;
+
         Map m = new Map();
+
         m.size = 30;
         m.generate();
+
+        System.out.println("Treasure Game");
+
+        System.out.print("Input number of players (minimum 2, maximum 8): ");
+        boolean success = false;
+        while (!success) {
+            try {
+                numOfPlayers = Integer.parseInt(scanner.nextLine()) ;
+                success = game.setNumPlayers(numOfPlayers);
+
+                if (!success)
+                    System.err.print("Minimum number of players 2, maximum 8. Try again: ");
+
+            } catch (NumberFormatException e) {
+                System.err.print("Not a valid number. Try again: ");
+            }
+        }
     }
 }
