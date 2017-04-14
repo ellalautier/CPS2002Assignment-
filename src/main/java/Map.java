@@ -16,7 +16,7 @@ public class Map {
                 return false;
             }
         }
-        size = x;
+        size = y;
         return true;
     }
 
@@ -48,9 +48,9 @@ public class Map {
                     int adjNo = 0;
                     for (int k = 0; k < 4; k++) {
                         if (k < 2) {
-                            if ((adj[k] > 0 && adj[k] < size) && (mapArray[adj[k]][j] != 'w')) adjNo++;
+                            if ((adj[k] >= 0 && adj[k] < size) && (mapArray[adj[k]][j] != 'w')) adjNo++;
                         } else {
-                            if ((adj[k] > 0 && adj[k] < size) && (mapArray[i][adj[k]] != 'w')) adjNo++;
+                            if ((adj[k] >= 0 && adj[k] < size) && (mapArray[i][adj[k]] != 'w')) adjNo++;
                         }
                     }
 
@@ -59,12 +59,12 @@ public class Map {
                         while (q != 2) {
                             int p = (int) (Math.random() * 4);
                             if (p < 2) {
-                                if ((adj[p] > 0 && adj[p] < size) && (mapArray[adj[p]][j] == 'w')) {
+                                if ((adj[p] >= 0 && adj[p] < size) && (mapArray[adj[p]][j] == 'w')) {
                                     mapArray[adj[p]][j] = 'g';
                                     q++;
                                 }
                             } else {
-                                if ((adj[p] > 0 && adj[p] < size) && (mapArray[i][adj[p]] == 'w')) {
+                                if ((adj[p] >= 0 && adj[p] < size) && (mapArray[i][adj[p]] == 'w')) {
                                     mapArray[i][adj[p]] = 'g';
                                     q++;
                                 }
