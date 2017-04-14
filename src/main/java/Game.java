@@ -3,8 +3,17 @@ public class Game {
     Player[] players;
     Map map;
 
-    boolean setNumPlayers(int n) {
-        if (n >= 2 && n <= 8) {
+    /**
+     * Initialises the players array with size n.  Minimum number of players: 2, max: 8.
+     * @param n Number of players
+     * @return true if n is >= minimum number of players, and <= max
+     */
+    boolean setNumPlayers(final int n) {
+        final int min = 2;
+        final int max = 8;
+
+        if (n >= min && n <= max) {
+            players = new Player[n];
             return true;
         }
 
