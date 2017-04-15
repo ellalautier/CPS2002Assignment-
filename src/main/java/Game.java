@@ -23,6 +23,14 @@ public class Game {
         return false;
     }
 
+    /**
+     * Generates an HTML file for each player.  Filename: map_player_n.html (where n is the player number.)
+     * Each HTML file contains a table representing the map from the perspective of the corresponding user.
+     * i.e. each  player  sees  the  tiles  he/she has discovered so far, as well as his/her current position.
+     */
+    void generateHTMLFiles() {
+    }
+
     public static void main(String[] args){
         Game game = new Game();
         Scanner scanner = new Scanner(System.in);
