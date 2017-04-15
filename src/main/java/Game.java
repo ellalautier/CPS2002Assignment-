@@ -1,3 +1,6 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -28,22 +31,71 @@ public class Game {
      * i.e. each  player  sees  the  tiles  he/she has discovered so far, as well as his/her current position.
      */
     void generateHTMLFiles() {
+        String beforeBody = "<!DOCTYPE html>\n" +
+                "<html lang=\"en\">\n" +
+                "<head>\n" +
+                "    <meta charset=\"UTF-8\">\n" +
+                "    <style>\n" +
+                "        td.uncovered { background-color: lightgrey; }\n" +
+                "        td.treasure { background-color: gold; }\n" +
+                "        td.grass { background-color: ForestGreen; }\n" +
+                "        td.water { background-color: LightSkyBlue; }\n" +
+                "        td {\n" +
+                "            border: 1px solid #999;\n" +
+                "            padding: 0;\n" +
+                "            height: 30px;\n" +
+                "            width: 30px;\n" +
+                "            text-align: center;\n" +
+                "            font-family: sans-serif;\n" +
+                "            font-size: 30px;\n" +
+                "            line-height: 30px;\n" +
+                "        }\n" +
+                "        table {\n" +
+                "            border-collapse: collapse;\n" +
+                "        }\n" +
+                "    </style>\n" +
+                "    <title>Player 1 - Treasure Game Map</title>\n" +
+                "</head>\n" +
+                "<body>";
+        String innerBody = "";
+        String afterBody = "</body>\n" + "</html>";
+        //for (Player player : players) {
+
+        //}
+
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter("map_player_n.html"));
+            bw.write(beforeBody);
+            bw.write(innerBody);
+            bw.write(afterBody);
+            bw.close();
+        } catch (IOException e) {
+            System.err.println("Error writing player's map file.");
+            e.printStackTrace();
+        }
     }
 
 
     void startGame() {
-        // loop:
-        // generateHTMLFiles();
-            /* for each player:
-                ask for direction (U, D, L, R)
-                ensure not out of map
-               for each player:
+        boolean treasureFound = false;
+        generateHTMLFiles();
+        /*while (!treasureFound) {
+            generateHTMLFiles();
+            for (Player player : players) {
+                // ask for direction (U, D, L, R)
+                // ensure not out of map
+            }
+
+            for (Player player : players) {
+                *//*
                 uncover target tile
-                if treasure - player wins
+                if treasure - player wins, treasureFound = true
                 if grass - player moves
                 if water - player dies, moves back to starting position
-               if no winner - continue
-             */
+             *//*
+            }
+
+        }*/
     }
 
     private void askUserForNumOfPlayers(Scanner scanner) {

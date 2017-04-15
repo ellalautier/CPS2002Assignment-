@@ -1,4 +1,6 @@
 public class Player {
+    Position position;
+
     /**
      * Moves the player by one tile in the direction specified.
      * @param direction Direction to move in - 'U' -> up, 'D, -> down, 'L' -> left, 'R' -> right
