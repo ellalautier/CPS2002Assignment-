@@ -140,18 +140,23 @@ public class Game {
         }
     }
 
+    void initialisePlayers() {
+        for (Player player : players) {
+            player = new Player();
+            player.setStartPosition(map);
+        }
+    }
+
     public static void main(String[] args){
         Game game = new Game();
         Scanner scanner = new Scanner(System.in);
 
-        Map m = new Map();
-
-        m.size = 30;
-        m.generate();
-
         System.out.println("Treasure Game");
         game.askUserForNumOfPlayers(scanner);
         game.askUserForMapSize(scanner);
+        game.map.generate();
+        game.initialisePlayers();
+
 
         // for each player, generate a random starting position on the map - has to be grass
         game.startGame();
