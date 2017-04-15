@@ -97,4 +97,11 @@ public class Map {
         return mapArray[x][y];
     }
 
+    /**
+     * Returns a position of a random grass tile from which a player can start the game from.
+     * @return Position of random grass tile
+     */
+    Position getRandomStartPosition() {
+        return null;
+    }
 }

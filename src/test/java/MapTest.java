@@ -85,4 +85,11 @@ public class MapTest {
 
     }
 
+    @Test
+    public void getRandomStartPositionMustReturnGrassTileTest() {
+        char expectedTileType = 'g';
+        Position startPosition = map.getRandomStartPosition();
+        char actualTileType = map.getTileType(startPosition.getX(), startPosition.getY());
+        assertEquals(expectedTileType, actualTileType);
+    }
 }

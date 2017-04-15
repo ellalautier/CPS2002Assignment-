@@ -1,7 +1,10 @@
 import java.lang.Math;
+import java.util.ArrayList;
+
 public class Player {
     Position currentPosition;
     public Position startPosition;
+    ArrayList<Position> discoveredPositions = new ArrayList<Position>();
 
     public void setStartPosition(Map m){
         int x = (int)(Math.random()*m.size);
