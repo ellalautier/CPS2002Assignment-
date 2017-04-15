@@ -22,13 +22,13 @@ public class Game {
         return false;
     }
 
-<<<<<<< HEAD
+
 
 
     public static void main(String[] args){
         Game game = new Game();
         Scanner scanner = new Scanner(System.in);
-=======
+
     /**
      * Generates an HTML file for each player.  Filename: map_player_n.html (where n is the player number.)
      * Each HTML file contains a table representing the map from the perspective of the corresponding user.
@@ -54,7 +54,7 @@ public class Game {
     }
 
     private void askUserForNumOfPlayers(Scanner scanner) {
->>>>>>> 140aa0c378725ee5d8c82cce691414620064be22
+
         int numOfPlayers;
         boolean success = false;
 
@@ -96,8 +96,7 @@ public class Game {
         }
     }
 
-<<<<<<< HEAD
-=======
+
     public static void main(String[] args){
         Game game = new Game();
         Scanner scanner = new Scanner(System.in);
@@ -114,5 +113,5 @@ public class Game {
         // for each player, generate a random starting position on the map - has to be grass
         game.startGame();
     }
->>>>>>> 140aa0c378725ee5d8c82cce691414620064be22
+
 }

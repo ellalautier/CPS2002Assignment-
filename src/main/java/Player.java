@@ -1,6 +1,6 @@
 import java.lang.Math;
 public class Player {
-<<<<<<< HEAD
+
 
     public Position p;
     public Position startPos;
@@ -35,5 +35,5 @@ public class Player {
     boolean setPosition(Position p) {
         return false;
     }
->>>>>>> 140aa0c378725ee5d8c82cce691414620064be22
+
 }
