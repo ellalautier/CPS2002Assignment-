@@ -1,1 +1,3 @@
 *.iml # ignore Intellij files
+.idea
+.idea/*
