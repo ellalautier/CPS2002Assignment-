@@ -35,6 +35,7 @@ public class Game {
         Game game = new Game();
         Scanner scanner = new Scanner(System.in);
         int numOfPlayers;
+        int mapSize;
 
         Map m = new Map();
 
@@ -47,7 +48,7 @@ public class Game {
         boolean success = false;
         while (!success) {
             try {
-                numOfPlayers = Integer.parseInt(scanner.nextLine()) ;
+                numOfPlayers = Integer.parseInt(scanner.nextLine());
                 success = game.setNumPlayers(numOfPlayers);
 
                 if (!success)
@@ -57,5 +58,22 @@ public class Game {
                 System.err.print("Not a valid number. Try again: ");
             }
         }
+
+        System.out.print("Input map size n (for an n x n map): ");
+        // input map size n, repeat until valid size has been inputted
+
+        // for each player, generate a random starting position on the map - has to be grass
+        // loop:
+            // generateHTMLFiles();
+            /* for each player:
+                ask for direction (U, D, L, R)
+                ensure not out of map
+               for each player:
+                uncover target tile
+                if treasure - player wins
+                if grass - player moves
+                if water - player dies, moves back to starting position
+               if no winner - continue
+             */
     }
 }

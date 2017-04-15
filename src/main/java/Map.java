@@ -6,6 +6,13 @@ public class Map {
     public int size;
 
 
+    /**
+     * Sets the map's size (n x n). 2-4 players: minimum map size is 5x5.  5-8 players: minimum map size is 8x8.
+     * Maximum map size is 50x50.
+     * @param x
+     * @param y
+     * @return
+     */
     boolean setMapSize(int x, int y){           //x - no of players, y - length
         if(x<2 || x>8){                         //min/max no of players
             return false;
