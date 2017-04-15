@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Game {
     int turns;
     Player[] players;
-    Map map;
+    Map map = new Map();
     static final int MIN_PLAYERS = 2;
     static final int MAX_PLAYERS = 8;
 
@@ -50,14 +50,14 @@ public class Game {
         int numOfPlayers;
         boolean success = false;
 
-        System.out.print("Input number of players (minimum " + MAX_PLAYERS + ", maximum " + MAX_PLAYERS + "): ");
+        System.out.print("Input number of players (minimum " + MIN_PLAYERS + ", maximum " + MAX_PLAYERS + "): ");
         while (!success) {
             try {
                 numOfPlayers = Integer.parseInt(scanner.nextLine());
                 success = setNumPlayers(numOfPlayers);
 
                 if (!success)
-                    System.err.print("Minimum number of players " + MAX_PLAYERS + ", maximum " + MAX_PLAYERS
+                    System.err.print("Minimum number of players " + MIN_PLAYERS + ", maximum " + MAX_PLAYERS
                             + ". Try again: ");
 
             } catch (NumberFormatException e) {
@@ -74,7 +74,6 @@ public class Game {
         int mapSize;
         boolean success = false;
         System.out.print("Input map size n (for an n x n map): ");
-        // input map size n, repeat until valid size has been inputted
         while (!success) {
             try {
                 mapSize = Integer.parseInt(scanner.nextLine());
@@ -92,7 +91,6 @@ public class Game {
     public static void main(String[] args){
         Game game = new Game();
         Scanner scanner = new Scanner(System.in);
-        int mapSize;
 
         Map m = new Map();
 
