@@ -13,17 +13,10 @@ public class Map {
     boolean setMapSize(int size, int numOfPlayers) {
         if (numOfPlayers<2 || numOfPlayers>8) {
             return false;
-<<<<<<< HEAD
-        }else{
-            if(x>4 && y < 8){                   //minimum size must be over 8 if 4 or more player
-                return false;
-            }else if(y>50 || y<5){              //size limits
-=======
         } else {
             if (numOfPlayers>4 && size < 8) {
                 return false;
             } else if (size>50 || size<5) {
->>>>>>> 140aa0c378725ee5d8c82cce691414620064be22
                 return false;
             }
         }
@@ -49,12 +42,9 @@ public class Map {
                 }
         }
 
-<<<<<<< HEAD
 
         //this loop is used to ensure every grass tile can reach the treasure
-=======
        // int x_1, x_2, y_1, y_2;
->>>>>>> 140aa0c378725ee5d8c82cce691414620064be22
 
         for(int i = 0; i<size; i++) {
             for (int j = 0; j < size; j++)
