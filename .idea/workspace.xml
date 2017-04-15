@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3b2578ca-686d-4134-8b6a-39a56e61d954" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Map.java" afterPath="$PROJECT_DIR$/src/main/java/Map.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/MapTest.java" afterPath="$PROJECT_DIR$/src/test/java/MapTest.java" />
     </list>
     <ignored path="cps2002-assignment.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,7 +30,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Player.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Player.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
@@ -66,11 +65,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MapTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MapTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/MapTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="88" column="16" lean-forward="true" selection-start-line="88" selection-start-column="16" selection-end-line="88" selection-end-column="60" />
+            <state relative-caret-position="-442">
+              <caret line="14" column="30" lean-forward="false" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -79,8 +78,8 @@
       <file leaf-file-name="Map.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Map.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="98" column="0" lean-forward="true" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+            <state relative-caret-position="104">
+              <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
               <folding>
                 <element signature="e#3434#3435#0" expanded="true" />
                 <element signature="e#3471#3472#0" expanded="true" />
@@ -119,9 +118,9 @@
         <option value="$PROJECT_DIR$/src/main/java/Position.java" />
         <option value="$PROJECT_DIR$/src/main/java/Game.java" />
         <option value="$PROJECT_DIR$/src/test/java/PositionTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/MapTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/Map.java" />
         <option value="$PROJECT_DIR$/src/main/java/Player.java" />
+        <option value="$PROJECT_DIR$/src/test/java/MapTest.java" />
       </list>
     </option>
   </component>
@@ -589,7 +588,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="MapTest_getRandomStartPositionMustReturnGrassTileTest - 2017.04.15 at 18h 25m 21s.xml">
+    <history-entry file="MapTest_getRandomStartPositionMustReturnGrassTileTest - 2017.04.15 at 18h 29m 51s.xml">
+      <configuration name="MapTest.getRandomStartPositionMustReturnGrassTileTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MapTest_getRandomStartPositionMustReturnGrassTileTest - 2017.04.15 at 18h 30m 13s.xml">
+      <configuration name="MapTest.getRandomStartPositionMustReturnGrassTileTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MapTest_getRandomStartPositionMustReturnGrassTileTest - 2017.04.15 at 18h 33m 25s.xml">
+      <configuration name="MapTest.getRandomStartPositionMustReturnGrassTileTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MapTest_getRandomStartPositionMustReturnGrassTileTest - 2017.04.15 at 18h 34m 40s.xml">
+      <configuration name="MapTest.getRandomStartPositionMustReturnGrassTileTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MapTest_getRandomStartPositionMustReturnGrassTileTest - 2017.04.15 at 18h 34m 51s.xml">
+      <configuration name="MapTest.getRandomStartPositionMustReturnGrassTileTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MapTest_getRandomStartPositionMustReturnGrassTileTest - 2017.04.15 at 18h 37m 27s.xml">
+      <configuration name="MapTest.getRandomStartPositionMustReturnGrassTileTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MapTest_getRandomStartPositionMustReturnGrassTileTest - 2017.04.15 at 18h 37m 30s.xml">
+      <configuration name="MapTest.getRandomStartPositionMustReturnGrassTileTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MapTest_getRandomStartPositionMustReturnGrassTileTest - 2017.04.15 at 18h 38m 03s.xml">
+      <configuration name="MapTest.getRandomStartPositionMustReturnGrassTileTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MapTest_getRandomStartPositionMustReturnGrassTileTest - 2017.04.15 at 18h 38m 17s.xml">
+      <configuration name="MapTest.getRandomStartPositionMustReturnGrassTileTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MapTest_getRandomStartPositionMustReturnGrassTileTest - 2017.04.15 at 18h 38m 19s.xml">
       <configuration name="MapTest.getRandomStartPositionMustReturnGrassTileTest" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -618,7 +644,7 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39934534" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -665,7 +691,23 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Map.java</url>
+          <line>32</line>
+          <properties />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Map.java</url>
+          <line>31</line>
+          <properties />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="3" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="antWorkspaceConfiguration">
@@ -794,40 +836,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/maptest.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-92">
-          <caret line="49" column="26" lean-forward="false" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
-          <folding>
-            <element signature="e#1744#105625#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/MapTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="88" column="16" lean-forward="true" selection-start-line="88" selection-start-column="16" selection-end-line="88" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Position.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="5" lean-forward="false" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Map.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="98" column="0" lean-forward="true" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
-          <folding>
-            <element signature="e#3434#3435#0" expanded="true" />
-            <element signature="e#3471#3472#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -847,6 +860,35 @@
             <element signature="imports" expanded="true" />
             <element signature="e#198#208#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/maptest.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-92">
+          <caret line="49" column="26" lean-forward="false" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
+          <folding>
+            <element signature="e#1744#105625#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Map.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding>
+            <element signature="e#3434#3435#0" expanded="true" />
+            <element signature="e#3471#3472#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/MapTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-442">
+          <caret line="14" column="30" lean-forward="false" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>

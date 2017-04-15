@@ -10,7 +10,10 @@ public class MapTest {
 
     @Before
     public void setup(){
+
         map = new Map();
+        map.setMapSize(50, 5);
+        map.generate();
     }
 
 
