@@ -102,6 +102,12 @@ public class Map {
      * @return Position of random grass tile
      */
     Position getRandomStartPosition() {
-        return null;
+        int x = (int)(Math.random()*size);
+        int y = (int)(Math.random()*size);
+        while(getTileType(x,y)!='g'){             //ensures grass tile
+            x = (int)(Math.random()*size);
+            y = (int)(Math.random()*size);
+        }
+        return new Position(x, y);
     }
 }
