@@ -140,6 +140,9 @@ public class Game {
         }
     }
 
+    /**
+     * Instantiates the Player objects, and sets a random starting position (on a grass tile) for each.
+     */
     void initialisePlayers() {
         for (Player player : players) {
             player = new Player();
@@ -156,9 +159,6 @@ public class Game {
         game.askUserForMapSize(scanner);
         game.map.generate();
         game.initialisePlayers();
-
-
-        // for each player, generate a random starting position on the map - has to be grass
         game.startGame();
     }
 }
