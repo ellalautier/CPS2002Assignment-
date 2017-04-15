@@ -13,10 +13,17 @@ public class Map {
     boolean setMapSize(int size, int numOfPlayers) {
         if (numOfPlayers<2 || numOfPlayers>8) {
             return false;
+<<<<<<< HEAD
+        }else{
+            if(x>4 && y < 8){                   //minimum size must be over 8 if 4 or more player
+                return false;
+            }else if(y>50 || y<5){              //size limits
+=======
         } else {
             if (numOfPlayers>4 && size < 8) {
                 return false;
             } else if (size>50 || size<5) {
+>>>>>>> 140aa0c378725ee5d8c82cce691414620064be22
                 return false;
             }
         }
@@ -27,13 +34,13 @@ public class Map {
 
 
 
-    void generate(){                        //creates and populates array
+    void generate(){                                    //creates and populates array
         mapArray = new char[size][size];
-        int t_x = (int)(Math.random()*size);
+        int t_x = (int)(Math.random()*size);            //treasure map coordinates
         int t_y = (int)(Math.random()*size);
-        mapArray[t_x][t_y] = 't';
+        mapArray[t_x][t_y] = 't';                       //places treasure
 
-        for(int i = 0; i<size; i++){
+        for(int i = 0; i<size; i++){                    //fills rest of array with water or grass tiles
             for(int j = 0; j<size; j++)
                 if (mapArray[i][j] != 't') {
                     int v = (int) (Math.random()*2);
@@ -42,7 +49,12 @@ public class Map {
                 }
         }
 
+<<<<<<< HEAD
+
+        //this loop is used to ensure every grass tile can reach the treasure
+=======
        // int x_1, x_2, y_1, y_2;
+>>>>>>> 140aa0c378725ee5d8c82cce691414620064be22
 
         for(int i = 0; i<size; i++) {
             for (int j = 0; j < size; j++)

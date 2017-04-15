@@ -1,7 +1,6 @@
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Game {
@@ -24,6 +23,7 @@ public class Game {
 
         return false;
     }
+
 
     /**
      * Generates an HTML file for each player.  Filename: map_player_n.html (where n is the player number.)
