@@ -5,6 +5,8 @@ public class Game {
     int turns;
     Player[] players;
     Map map;
+    static final int MIN_PLAYERS = 2;
+    static final int MAX_PLAYERS = 8;
 
     /**
      * Initialises the players array with size n.  Minimum number of players: 2, max: 8.
@@ -12,10 +14,7 @@ public class Game {
      * @return true if n is >= minimum number of players, and <= max
      */
     boolean setNumPlayers(final int n) {
-        final int min = 2;
-        final int max = 8;
-
-        if (n >= min && n <= max) {
+        if (n >= MIN_PLAYERS && n <= MAX_PLAYERS) {
             players = new Player[n];
             return true;
         }
@@ -33,43 +32,8 @@ public class Game {
 
 
     void startGame() {
-
-    }
-
-    public static void main(String[] args){
-        Game game = new Game();
-        Scanner scanner = new Scanner(System.in);
-        int numOfPlayers;
-        int mapSize;
-
-        Map m = new Map();
-
-        m.size = 30;
-        m.generate();
-
-        System.out.println("Treasure Game");
-
-        System.out.print("Input number of players (minimum 2, maximum 8): ");
-        boolean success = false;
-        while (!success) {
-            try {
-                numOfPlayers = Integer.parseInt(scanner.nextLine());
-                success = game.setNumPlayers(numOfPlayers);
-
-                if (!success)
-                    System.err.print("Minimum number of players 2, maximum 8. Try again: ");
-
-            } catch (NumberFormatException e) {
-                System.err.print("Not a valid number. Try again: ");
-            }
-        }
-
-        System.out.print("Input map size n (for an n x n map): ");
-        // input map size n, repeat until valid size has been inputted
-
-        // for each player, generate a random starting position on the map - has to be grass
         // loop:
-            // generateHTMLFiles();
+        // generateHTMLFiles();
             /* for each player:
                 ask for direction (U, D, L, R)
                 ensure not out of map
@@ -80,5 +44,66 @@ public class Game {
                 if water - player dies, moves back to starting position
                if no winner - continue
              */
+    }
+
+    private void askUserForNumOfPlayers(Scanner scanner) {
+        int numOfPlayers;
+        boolean success = false;
+
+        System.out.print("Input number of players (minimum " + MAX_PLAYERS + ", maximum " + MAX_PLAYERS + "): ");
+        while (!success) {
+            try {
+                numOfPlayers = Integer.parseInt(scanner.nextLine());
+                success = setNumPlayers(numOfPlayers);
+
+                if (!success)
+                    System.err.print("Minimum number of players " + MAX_PLAYERS + ", maximum " + MAX_PLAYERS
+                            + ". Try again: ");
+
+            } catch (NumberFormatException e) {
+                System.err.print("Not a valid number. Try again: ");
+            }
+        }
+    }
+
+    private int getNumOfPlayers() {
+        return players.length;
+    }
+
+    private void askUserForMapSize(Scanner scanner) {
+        int mapSize;
+        boolean success = false;
+        System.out.print("Input map size n (for an n x n map): ");
+        // input map size n, repeat until valid size has been inputted
+        while (!success) {
+            try {
+                mapSize = Integer.parseInt(scanner.nextLine());
+                success = map.setMapSize(mapSize, getNumOfPlayers());
+
+                if (!success)
+                    System.err.print("2-4 players: minimum map size is 5x5.  5-8 players: minimum map size is 8x8.  Try again: ");
+
+            } catch (NumberFormatException e) {
+                System.err.print("Not a valid number. Try again: ");
+            }
+        }
+    }
+
+    public static void main(String[] args){
+        Game game = new Game();
+        Scanner scanner = new Scanner(System.in);
+        int mapSize;
+
+        Map m = new Map();
+
+        m.size = 30;
+        m.generate();
+
+        System.out.println("Treasure Game");
+        game.askUserForNumOfPlayers(scanner);
+        game.askUserForMapSize(scanner);
+
+        // for each player, generate a random starting position on the map - has to be grass
+        game.startGame();
     }
 }
