@@ -10,7 +10,10 @@ public class MapTest {
 
     @Before
     public void setup(){
+
         map = new Map();
+        map.setMapSize(50, 5);
+        map.generate();
     }
 
 
@@ -85,4 +88,11 @@ public class MapTest {
 
     }
 
+    @Test
+    public void getRandomStartPositionMustReturnGrassTileTest() {
+        char expectedTileType = 'g';
+        Position startPosition = map.getRandomStartPosition();
+        char actualTileType = map.getTileType(startPosition.getX(), startPosition.getY());
+        assertEquals(expectedTileType, actualTileType);
+    }
 }

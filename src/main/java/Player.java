@@ -1,24 +1,25 @@
 import java.lang.Math;
+import java.util.ArrayList;
 public class Player {
 
 
     public Position p;
     public Position startPos;
 
+    ArrayList<Position> discoveredPositions = new ArrayList<Position>();
 
-    public void startPosition(Map m){
+    public void setStartPosition(Map m){
         int x = (int)(Math.random()*m.size);
         int y = (int)(Math.random()*m.size);
         while(m.getTileType(x,y)!='g'){             //ensures grass tile
             x = (int)(Math.random()*m.size);
             y = (int)(Math.random()*m.size);
         }
-        startPos.setX(x);
-        startPos.setY(y);
+
+        startPos = new Position(x, y);
         p = startPos;
     }
 
-=======
     /**
      * Moves the player by one tile in the direction specified.
      * @param direction Direction to move in - 'U' -> up, 'D, -> down, 'L' -> left, 'R' -> right
