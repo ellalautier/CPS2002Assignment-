@@ -23,6 +23,8 @@ public class Game {
         return false;
     }
 
+
+
     public static void main(String[] args){
         Game game = new Game();
         Scanner scanner = new Scanner(System.in);
@@ -50,4 +52,5 @@ public class Game {
             }
         }
     }
+
 }
