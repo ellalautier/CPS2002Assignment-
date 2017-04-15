@@ -21,13 +21,13 @@ public class MapTest {
     //setMapSize
     @Test
     public void setMapSizeTest1(){
-        assertTrue(map.setMapSize(2, 5));
+        assertTrue(map.setMapSize(5, 2));
     }
 
 
     @Test
     public void setMapSizeTest2(){
-        assertTrue(map.setMapSize(4, 5));
+        assertTrue(map.setMapSize(5, 4));
     }
 
     @Test
@@ -37,17 +37,17 @@ public class MapTest {
 
     @Test
     public void setMapSizeTest4(){
-        assertTrue(map.setMapSize(7, 8));
+        assertTrue(map.setMapSize(8, 7));
     }
 
     @Test
     public void setMapSizeTest5(){
-        assertFalse(map.setMapSize(3, 51));
+        assertFalse(map.setMapSize(51, 3));
     }
 
     @Test
     public void setMapSizeTest6(){
-        assertFalse(map.setMapSize(8, 51));
+        assertFalse(map.setMapSize(51, 8));
     }
 
 
@@ -55,7 +55,7 @@ public class MapTest {
     //generate
     @Test
     public void generateTest1()   {
-        map.setMapSize(2, 5);
+        map.setMapSize(5, 2);
         map.generate();
         assertEquals(map.mapArray[0].length, 5);
         assertEquals(map.mapArray[4].length, 5);
@@ -64,7 +64,7 @@ public class MapTest {
 
     @Test
     public void generateTest2(){
-        map.setMapSize(2,5);
+        map.setMapSize(5, 2);
         m = new char[5][5];
         map.generate();
         assertNotEquals(map.mapArray[0], null);

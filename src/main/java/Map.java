@@ -1,22 +1,34 @@
 
 public class Map {
-
-
     public char[][] mapArray;
     public int size;
 
-
-    boolean setMapSize(int x, int y){           //x - no of players, y - length
-        if(x<2 || x>8){                         //min/max no of players
+    /**
+     * Sets the map's size. 2-4 players: minimum map size is 5x5.  5-8 players: minimum map size is 8x8.
+     * Maximum map size is 50x50.
+     * @param size Map size to set. (Result - size x size map, eg. for a 50x50 map this variable should be 50.)
+     * @param numOfPlayers Number of players in game.
+     * @return true if successful, false if not - size greater than maximum, or less than minimum for no. of players.
+     */
+    boolean setMapSize(int size, int numOfPlayers) {
+        if (numOfPlayers<2 || numOfPlayers>8) {
             return false;
+<<<<<<< HEAD
         }else{
             if(x>4 && y < 8){                   //minimum size must be over 8 if 4 or more player
                 return false;
             }else if(y>50 || y<5){              //size limits
+=======
+        } else {
+            if (numOfPlayers>4 && size < 8) {
+                return false;
+            } else if (size>50 || size<5) {
+>>>>>>> 140aa0c378725ee5d8c82cce691414620064be22
                 return false;
             }
         }
-        size = y;
+
+        this.size = size;
         return true;
     }
 
@@ -37,8 +49,12 @@ public class Map {
                 }
         }
 
+<<<<<<< HEAD
 
         //this loop is used to ensure every grass tile can reach the treasure
+=======
+       // int x_1, x_2, y_1, y_2;
+>>>>>>> 140aa0c378725ee5d8c82cce691414620064be22
 
         for(int i = 0; i<size; i++) {
             for (int j = 0; j < size; j++)
