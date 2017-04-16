@@ -67,15 +67,15 @@ public class PlayerTest {
 
     @Test
     public void moveUpTest() {
-	    Position expectedCurrentPosition = new Position(30, 31);
+	    Position expectedCurrentPosition = new Position(30, 29);
         player.currentPosition = new Position(30, 30);
         player.move('U');
         assertEquals(expectedCurrentPosition, player.currentPosition);
     }
     @Test
     public void moveDownTest() {
-        Position expectedCurrentPosition = new Position(30, 29);
-        player.currentPosition = new Position(30, 30);
+        Position expectedCurrentPosition = new Position(30, 30);
+        player.currentPosition = new Position(30, 29);
         player.move('D');
         assertEquals(expectedCurrentPosition, player.currentPosition);
     }
