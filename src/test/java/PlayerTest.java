@@ -94,12 +94,12 @@ public class PlayerTest {
         assertEquals(expectedCurrentPosition, player.currentPosition);
     }
 
-	/*@Test
+	@Test
 	public void setPositionTestNotOutOfBounds() {
-		position = new Position(0, 0);
+		//position = new Position(0, 0);
 		
-		assertTrue(player.setPosition(position));
-		assertFalse(player.setPosition(new Position(6, 6)));
-	}*/
+		//assertTrue(player.setPosition(position));
+		//assertFalse(player.setPosition(new Position(6, 6)));
+	}
 
 }

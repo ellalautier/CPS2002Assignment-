@@ -3,6 +3,10 @@ public class Map {
     public char[][] mapArray;
     public int size;
 
+    boolean isOutOfBounds(Position position) {
+        return false;
+    }
+
     /**
      * Sets the map's size. 2-4 players: minimum map size is 5x5.  5-8 players: minimum map size is 8x8.
      * Maximum map size is 50x50.

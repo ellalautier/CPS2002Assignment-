@@ -39,7 +39,7 @@ public class Game {
                 String cssClass;
                 String cell;
 
-                if (true) {
+                if (player.hasDiscovered(position)) {
                     switch (map.getTileType(x, y)) {
                         case 'g':
                             cssClass = "grass";

@@ -74,12 +74,6 @@ public class MapTest {
         assertNotEquals(map.mapArray[4], null);
     }
 
-
-
-
-
-
-
     @Test
     public void getTileTypeTest(){
         map.mapArray = new char[][]{{'g', 'w'}, {'w', 't'}};
@@ -94,5 +88,30 @@ public class MapTest {
         Position startPosition = map.getRandomStartPosition();
         char actualTileType = map.getTileType(startPosition.getX(), startPosition.getY());
         assertEquals(expectedTileType, actualTileType);
+    }
+
+    @Test
+    public void isOutOfBoundsTestXNegative() {
+        assertTrue(map.isOutOfBounds(new Position(-1, 0)));
+    }
+
+    @Test
+    public void isOutOfBoundsTestYNegative() {
+        assertTrue(map.isOutOfBounds(new Position(0, -1)));
+    }
+
+    @Test
+    public void isOutOfBoundsTestXOut() {
+        assertTrue(map.isOutOfBounds(new Position(50, 0)));
+    }
+
+    @Test
+    public void isOutOfBoundsTestYOut() {
+        assertTrue(map.isOutOfBounds(new Position(0, 50)));
+    }
+
+    @Test
+    public void isOutOfBoundsTestWithinBounds() {
+        assertFalse(map.isOutOfBounds(new Position(30, 30)));
     }
 }
