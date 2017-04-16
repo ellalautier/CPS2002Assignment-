@@ -52,8 +52,19 @@ public class Player {
      * @param direction Direction to move in - 'U' -> up, 'D, -> down, 'L' -> left, 'R' -> right
      * @return true if moving in the provided direction sends player out of the map, false otherwise
      */
-    boolean moveIsOutOfMap(char direction) {
-        return false;
+    boolean moveIsOutOfMap(char direction, Map map) {
+        switch (direction) {
+            case 'U':
+                return currentPosition.y == 0;
+            case 'D':
+                return currentPosition.y == map.size - 1;
+            case 'L':
+                return currentPosition.x == 0;
+            case 'R':
+                return currentPosition.x == map.size - 1;
+            default:
+                return false;
+        }
     }
 
     /**

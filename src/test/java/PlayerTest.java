@@ -37,7 +37,7 @@ public class PlayerTest {
     public void moveIsOutOfMapTestUp() {
 	    boolean expectedValue = true;
         player.currentPosition = new Position(0, 0);
-	    boolean actualValue = player.moveIsOutOfMap('U');
+	    boolean actualValue = player.moveIsOutOfMap('U', map);
         assertEquals(expectedValue, actualValue);
     }
 
@@ -45,23 +45,23 @@ public class PlayerTest {
     public void moveIsOutOfMapTestLeft() {
         boolean expectedValue = true;
         player.currentPosition = new Position(0, 0);
-        boolean actualValue = player.moveIsOutOfMap('L');
+        boolean actualValue = player.moveIsOutOfMap('L', map);
         assertEquals(expectedValue, actualValue);
     }
 
     @Test
     public void moveIsOutOfMapTestRight() {
         boolean expectedValue = true;
-        player.currentPosition = new Position(map.size, map.size);
-        boolean actualValue = player.moveIsOutOfMap('R');
+        player.currentPosition = new Position(map.size - 1, map.size - 1);
+        boolean actualValue = player.moveIsOutOfMap('R', map);
         assertEquals(expectedValue, actualValue);
     }
 
     @Test
     public void moveIsOutOfMapTestDown() {
         boolean expectedValue = true;
-        player.currentPosition = new Position(map.size, map.size);
-        boolean actualValue = player.moveIsOutOfMap('D');
+        player.currentPosition = new Position(map.size - 1, map.size - 1);
+        boolean actualValue = player.moveIsOutOfMap('D', map);
         assertEquals(expectedValue, actualValue);
     }
 

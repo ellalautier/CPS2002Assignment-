@@ -148,7 +148,7 @@ public class Game {
 
             if (!isValidDirection(direction)) {
                 System.out.print("Move can only be U (up), D (down), L (left), or R (right).  Try again: ");
-            } else if (player.moveIsOutOfMap(direction)) {
+            } else if (player.moveIsOutOfMap(direction, map)) {
                 System.out.println("This move would be out of the map.  Try another direction: ");
             } else {
                 valid = true;
