@@ -1,6 +1,8 @@
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Game {
@@ -161,28 +163,33 @@ public class Game {
 
     void startGame(Scanner scanner) {
         boolean treasureFound = false;
+        List<Integer> winningPlayers = new ArrayList<Integer>();
+        int round = 1;
         generateHTMLFiles();
         System.out.println("Game starting ...");
 
-//        while (!treasureFound) {
-//            generateHTMLFiles();
-//            for (int i = 0; i < players.length; i++) {
-//                int playerNo = i + 1;
-//                char move = getValidMoveFromPlayer(players[i], playerNo, scanner);
-//                // ask for direction (U, D, L, R)
-//                // ensure not out of map
-//            }
-//
-//            for (Player player : players) {
-//
-//                /*uncover target tile
-//                if treasure - player wins, treasureFound = true
-//                if grass - player moves
-//                if water - player dies, moves back to starting position
-//                */
-//            }
-//
-//        }
+        while (!treasureFound) {
+            System.out.println("Round " + round);
+            generateHTMLFiles();
+
+            for (int i = 0; i < players.length; i++) {
+                int playerNo = i + 1;
+                char direction = getValidMoveFromPlayer(players[i], playerNo, scanner);
+                players[i].move(direction);
+                if (players[i].hasDied()) {
+                    System.out.println("You died! You go back to where you began.");
+                    players[i].setPosition(players[i].startPosition);
+                }
+                if (players[i].hasFoundTreasure()) {
+                    treasureFound = true;
+                    winningPlayers.add(playerNo);
+                }
+            }
+
+            round++;
+        }
+
+        System.out.println("Players " + winningPlayers.toString() + " found the treasure!");
     }
 
     private void askUserForNumOfPlayers(Scanner scanner) {

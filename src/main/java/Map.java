@@ -29,14 +29,10 @@ public class Map {
         return true;
     }
 
-
-
     /**
      * Creates map in the form of a 2D character array
      * first selects the treasure map coordinates then fills the rest randomly with water and grass tiles
      */
-
-
     void generate(){
         mapArray = new char[size][size];
         int t_x = (int)(Math.random()*size);
