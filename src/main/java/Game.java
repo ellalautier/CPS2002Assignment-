@@ -123,27 +123,66 @@ public class Game {
         }
     }
 
+    /**
+     * @param direction Character representing direction ('U' -> up, 'D, -> down, 'L' -> left, 'R' -> right)
+     * @return true if valid direction ('U', 'D', 'L', or 'R'), false otherwise.
+     */
+    boolean isValidDirection(char direction) {
+        return direction == 'U' || direction == 'D' || direction == 'L' || direction == 'R';
+    }
 
-    void startGame() {
+    /**
+     * Asks the player for a direction to move in.  Retries until a valid move is given i.e. a valid direction
+     * ('U', 'D', 'L', or 'R') which does not send the player out of the map.
+     * @param player Player to move.
+     * @param playerNo Player number - used to display message so users know whose turn it is.)
+     * @param scanner Scanner object - used to get character representing desired move direction from user.
+     */
+    private char getValidMoveFromPlayer(Player player, int playerNo, Scanner scanner) {
+        char direction = 'z'; // dummy initial value
+        boolean valid = false;
+        System.out.print("Player " + playerNo + "'s move: " );
+
+        while (!valid) {
+            direction = scanner.nextLine().toUpperCase().charAt(0);
+
+            if (!isValidDirection(direction)) {
+                System.out.print("Move can only be U (up), D (down), L (left), or R (right).  Try again: ");
+            } else if (player.moveIsOutOfMap(direction)) {
+                System.out.println("This move would be out of the map.  Try another direction: ");
+            } else {
+                valid = true;
+            }
+        }
+
+        return direction;
+    }
+
+
+    void startGame(Scanner scanner) {
         boolean treasureFound = false;
         generateHTMLFiles();
-        /*while (!treasureFound) {
-            generateHTMLFiles();
-            for (Player player : players) {
-                // ask for direction (U, D, L, R)
-                // ensure not out of map
-            }
+        System.out.println("Game starting ...");
 
-            for (Player player : players) {
-                *//*
-                uncover target tile
-                if treasure - player wins, treasureFound = true
-                if grass - player moves
-                if water - player dies, moves back to starting position
-             *//*
-            }
-
-        }*/
+//        while (!treasureFound) {
+//            generateHTMLFiles();
+//            for (int i = 0; i < players.length; i++) {
+//                int playerNo = i + 1;
+//                char move = getValidMoveFromPlayer(players[i], playerNo, scanner);
+//                // ask for direction (U, D, L, R)
+//                // ensure not out of map
+//            }
+//
+//            for (Player player : players) {
+//
+//                /*uncover target tile
+//                if treasure - player wins, treasureFound = true
+//                if grass - player moves
+//                if water - player dies, moves back to starting position
+//                */
+//            }
+//
+//        }
     }
 
     private void askUserForNumOfPlayers(Scanner scanner) {
@@ -199,7 +238,6 @@ public class Game {
         }
     }
 
-
     public static void main(String[] args){
         Game game = new Game();
         Scanner scanner = new Scanner(System.in);
@@ -212,7 +250,7 @@ public class Game {
         game.map.generate();
         game.initialisePlayers();
 
-        game.startGame();
+        game.startGame(scanner);
     }
 
 }

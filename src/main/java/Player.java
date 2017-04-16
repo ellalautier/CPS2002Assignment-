@@ -48,6 +48,10 @@ public class Player {
 
     }
 
+    boolean moveIsOutOfMap(char direction) {
+
+    }
+
     /**
      * Sets the player's position.
      * @param p  Position to set.
