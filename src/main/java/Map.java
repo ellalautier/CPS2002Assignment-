@@ -27,13 +27,19 @@ public class Map {
 
 
 
-    void generate(){                                    //creates and populates array
-        mapArray = new char[size][size];
-        int t_x = (int)(Math.random()*size);            //treasure map coordinates
-        int t_y = (int)(Math.random()*size);
-        mapArray[t_x][t_y] = 't';                       //places treasure
+    /**
+     * Creates map in the form of a 2D character array
+     * first selects the treasure map coordinates then fills the rest randomly with water and grass tiles
+     */
 
-        for(int i = 0; i<size; i++){                    //fills rest of array with water or grass tiles
+
+    void generate(){
+        mapArray = new char[size][size];
+        int t_x = (int)(Math.random()*size);
+        int t_y = (int)(Math.random()*size);
+        mapArray[t_x][t_y] = 't';
+
+        for(int i = 0; i<size; i++){
             for(int j = 0; j<size; j++)
                 if (mapArray[i][j] != 't') {
                     int v = (int) (Math.random()*2);
@@ -44,7 +50,7 @@ public class Map {
 
 
         //this loop is used to ensure every grass tile can reach the treasure
-       // int x_1, x_2, y_1, y_2;
+
 
         for(int i = 0; i<size; i++) {
             for (int j = 0; j < size; j++)
@@ -92,6 +98,12 @@ public class Map {
 
     }
 
+    /**
+     * returns the type of tile
+     * @param x horizontal coordinate
+     * @param y vertical coordinate
+     * @return type of tile: either 'g', 'w' or 't'÷
+     */
 
     char getTileType(int x, int y){
         return mapArray[x][y];
