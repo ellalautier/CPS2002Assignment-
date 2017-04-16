@@ -38,10 +38,11 @@ public class Game {
             String row = "<tr>";
             for (int x = 0; x < map.size; x++) {
                 Position position = new Position(x, y);
+
                 String cssClass;
                 String cell;
 
-                if (player.hasDiscovered(position)) {
+                if (true) {
                     switch (map.getTileType(x, y)) {
                         case 'g':
                             cssClass = "grass";
@@ -59,7 +60,6 @@ public class Game {
                 } else {
                     cssClass = "hidden";
                 }
-
                 cell = "<td class = \"" + cssClass + "\">" + (player.isAt(position) ? "O" : "") + "</td>";
                 row += cell;
             }
@@ -186,7 +186,7 @@ public class Game {
                 players[i].move(direction);
                 if (players[i].hasDied()) {
                     System.out.println("You died! You go back to where you began.");
-                    players[i].setPosition(players[i].startPosition);
+                    players[i].resetPosition();
                 }
                 if (players[i].hasFoundTreasure()) {
                     treasureFound = true;

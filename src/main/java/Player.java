@@ -31,6 +31,13 @@ public class Player {
     }
 
     /**
+     * Resets current position to where the player started (startPosition)
+     */
+    public void resetPosition() {
+        setPosition(startPosition);
+    }
+
+    /**
      * Initialises the player to a random starting position (grass tile) on the provided map.
      * @param map Map on which to place player.
      */
@@ -38,7 +45,7 @@ public class Player {
         this.map = map;
         discoveredTiles = new boolean[map.size][map.size];  // default values are false (no tiles discovered so far)
         startPosition = map.getRandomStartPosition();
-        currentPosition = startPosition;
+        setPosition(startPosition);
         discover(currentPosition);
     }
 
@@ -96,7 +103,7 @@ public class Player {
         if (map.isOutOfBounds(p)) {
             return false;
         } else {
-            currentPosition = p;
+            currentPosition = new Position(p);
             return true;
         }
     }

@@ -6,6 +6,15 @@ public class Position {
         this.y = y;
     }
 
+    /**
+     * Copy constructor.
+     * @param p Position to copy.
+     */
+    public Position(Position p) {
+        this.x = p.x;
+        this.y = p.y;
+    }
+
     public int getX(){
         return x;
     }
