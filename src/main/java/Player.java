@@ -45,7 +45,22 @@ public class Player {
      * @param direction Direction to move in - 'U' -> up, 'D, -> down, 'L' -> left, 'R' -> right
      */
     void move(char direction) {
-
+        switch (direction) {
+            case 'U':
+                currentPosition.y++;
+                break;
+            case 'D':
+                currentPosition.y--;
+                break;
+            case 'L':
+                currentPosition.x--;
+                break;
+            case 'R':
+                currentPosition.x++;
+                break;
+            default:
+                break;
+        }
     }
 
     /**
