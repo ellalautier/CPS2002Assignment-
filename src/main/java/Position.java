@@ -24,6 +24,7 @@ public class Position {
     }
 
 
+
     /**
      * Two Position objects are considered equal if their x and y coordinates match.
      * @param obj Position to check if equal
