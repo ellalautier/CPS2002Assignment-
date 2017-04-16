@@ -65,6 +65,35 @@ public class PlayerTest {
         assertEquals(expectedValue, actualValue);
     }
 
+    @Test
+    public void moveUpTest() {
+	    Position expectedCurrentPosition = new Position(30, 31);
+        player.currentPosition = new Position(30, 30);
+        player.move('U');
+        assertEquals(expectedCurrentPosition, player.currentPosition);
+    }
+    @Test
+    public void moveDownTest() {
+        Position expectedCurrentPosition = new Position(30, 29);
+        player.currentPosition = new Position(30, 30);
+        player.move('D');
+        assertEquals(expectedCurrentPosition, player.currentPosition);
+    }
+    @Test
+    public void moveLeftTest() {
+        Position expectedCurrentPosition = new Position(29, 30);
+        player.currentPosition = new Position(30, 30);
+        player.move('L');
+        assertEquals(expectedCurrentPosition, player.currentPosition);
+    }
+    @Test
+    public void moveRightTest() {
+        Position expectedCurrentPosition = new Position(31, 30);
+        player.currentPosition = new Position(30, 30);
+        player.move('R');
+        assertEquals(expectedCurrentPosition, player.currentPosition);
+    }
+
 	/*@Test
 	public void setPositionTestNotOutOfBounds() {
 		position = new Position(0, 0);

@@ -21,4 +21,19 @@ public class Position {
     public void setY(int in){
         y = in;
     }
+
+    /**
+     * Two Position objects are considered equal if their x and y coordinates match.
+     * @param obj Position to check if equal
+     * @return true if equal, false if not equal, or if obj is not of type Position, or is null.
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) return false;
+        if (obj == this) return true;
+        if (!(obj instanceof Position))
+            return false;
+        Position position = (Position) obj;
+        return x == position.x && y == position.y;
+    }
 }
