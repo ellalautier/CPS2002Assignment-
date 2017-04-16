@@ -24,10 +24,16 @@ public class Game {
         return false;
     }
 
+    /**
+     * Generates HTML table code to represent the map as seen by the provided player.
+     * @param player The player whose map
+     * @return String containing the HTML table code
+     */
     String getTableHTMLForPlayer(Player player) {
 
+
         //player.discoveredTiles
-        return null;
+        return "";
     }
 
     /**
@@ -60,18 +66,16 @@ public class Game {
                 "        }\n" +
                 "    </style>\n";
         String afterTitleUpToBody = "</head>\n" + "<body>";
-        String innerBody = "";
         String afterBody = "</body>\n" + "</html>";
-        //for (Player player : players) {
-
-        //}
 
         for (int i = 0; i < players.length; i++) {
             int playerNo = i + 1;
             String title = "<title>Player " + playerNo + " - Treasure Game Map</title>";
+            String filename = "map_player_" + playerNo + ".html";
+            String innerBody = getTableHTMLForPlayer(players[i]);
 
             try {
-                BufferedWriter bw = new BufferedWriter(new FileWriter("map_player_n.html"));
+                BufferedWriter bw = new BufferedWriter(new FileWriter(filename));
                 bw.write(beforeTitle);
                 bw.write(title);
                 bw.write(afterTitleUpToBody);
@@ -79,7 +83,7 @@ public class Game {
                 bw.write(afterBody);
                 bw.close();
             } catch (IOException e) {
-                System.err.println("Error writing player's map file.");
+                System.err.println("Error writing " + filename);
                 e.printStackTrace();
             }
         }
