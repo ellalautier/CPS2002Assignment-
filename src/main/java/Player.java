@@ -48,8 +48,12 @@ public class Player {
 
     }
 
+    /**
+     * @param direction Direction to move in - 'U' -> up, 'D, -> down, 'L' -> left, 'R' -> right
+     * @return true if moving in the provided direction sends player out of the map, false otherwise
+     */
     boolean moveIsOutOfMap(char direction) {
-
+        return false;
     }
 
     /**
