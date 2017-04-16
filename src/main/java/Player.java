@@ -1,4 +1,5 @@
 public class Player {
+    Map map;
     Position currentPosition;
     public Position startPosition;
     public boolean[][] discoveredTiles;  // true means the tile at this position in the map has been discovered by this player
@@ -34,6 +35,7 @@ public class Player {
      * @param map Map on which to place player.
      */
     public Player(Map map) {
+        this.map = map;
         discoveredTiles = new boolean[map.size][map.size];  // default values are false (no tiles discovered so far)
         startPosition = map.getRandomStartPosition();
         currentPosition = startPosition;
@@ -45,13 +47,13 @@ public class Player {
      * @param direction Direction to move in - 'U' -> up, 'D, -> down, 'L' -> left, 'R' -> right
      */
     void move(char direction) {
-        //if (!moveIsOutOfMap(direction, map)) {
+        if (!moveIsOutOfMap(direction, map)) {
             switch (direction) {
                 case 'U':
-                    currentPosition.y++;
+                    currentPosition.y--;
                     break;
                 case 'D':
-                    currentPosition.y--;
+                    currentPosition.y++;
                     break;
                 case 'L':
                     currentPosition.x--;
@@ -62,7 +64,8 @@ public class Player {
                 default:
                     break;
             }
-        //}
+        }
+        discover(currentPosition);
     }
 
     /**
@@ -90,6 +93,25 @@ public class Player {
      * @return true: setting position was successful, false: not successful - position out of bounds of the map.
      */
     boolean setPosition(Position p) {
-        return false;
+        if (map.isOutOfBounds(p)) {
+            return false;
+        } else {
+            currentPosition = p;
+            return true;
+        }
+    }
+
+    /**
+     * @return true if player is at a treasure tile, false otherwise
+     */
+    public boolean hasFoundTreasure() {
+        return map.getTileType(currentPosition.x, currentPosition.y) == 't';
+    }
+
+    /**
+     * @return true if player is at a water tile, false otherwise
+     */
+    public boolean hasDied() {
+        return map.getTileType(currentPosition.x, currentPosition.y) == 'w';
     }
 }
