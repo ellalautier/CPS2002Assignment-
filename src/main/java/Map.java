@@ -3,6 +3,13 @@ public class Map {
     public char[][] mapArray;
     public int size;
 
+
+    /**
+     * Checks if Position object is out of bounds
+     * @param position Position to be tested
+     * @return true if out of range, false if valid
+     */
+
     boolean isOutOfBounds(Position position) {
         return position.x < 0 || position.y < 0 || position.x >= size || position.y >= size;
     }
@@ -48,12 +55,9 @@ public class Map {
                 }
         }
 
-
         //this loop is used to ensure every grass tile can reach the treasure
-
-
         for(int i = 0; i<size; i++) {
-            for (int j = 0; j < size; j++)
+            for (int j = 0; j < size; j++) {
                 if (mapArray[i][j] == 'g' || mapArray[i][j] == 't') {
                     int[] adj = {i - 1, i + 1, j - 1, j + 1};
                     int adjNo = 0;
@@ -82,20 +86,9 @@ public class Map {
                             }
                         }
                     }
-
                 }
-        }
-
-
-        /*
-        for(int i = 0; i<size; i++){
-            for(int j = 0; j<size; j++) {
-                System.out.print(mapArray[i][j] + " ");
             }
-            System.out.println();
         }
-        */
-
     }
 
     /**

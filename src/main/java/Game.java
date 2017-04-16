@@ -12,6 +12,7 @@ public class Game {
     static final int MIN_PLAYERS = 2;
     static final int MAX_PLAYERS = 8;
 
+
     /**
      * Initialises the players array with size n.  Minimum number of players: 2, max: 8.
      * @param n Number of players
@@ -25,6 +26,7 @@ public class Game {
 
         return false;
     }
+
 
     /**
      * Generates HTML table code to represent the map as seen by the provided player.
@@ -71,6 +73,7 @@ public class Game {
 
         return table;
     }
+
 
     /**
      * Generates an HTML file for each player.  Filename: map_player_n.html (where n is the player number.)
@@ -125,6 +128,7 @@ public class Game {
         }
     }
 
+
     /**
      * @param directionString Should contain character representing direction ('U' -> up, 'D, -> down, 'L' -> left, 'R' -> right)
      * @return true if valid direction ('U', 'D', 'L', or 'R'), false otherwise.
@@ -139,6 +143,7 @@ public class Game {
         }
 
     }
+
 
     /**
      * Asks the player for a direction to move in.  Retries until a valid move is given i.e. a valid direction
@@ -168,6 +173,10 @@ public class Game {
         return directionInput.charAt(0);
     }
 
+    /**
+     * The main game loop, after all necessary objects have been created
+     * @param scanner used for input
+     */
 
     void startGame(Scanner scanner) {
         boolean treasureFound = false;
@@ -200,6 +209,11 @@ public class Game {
         System.out.println("Players " + winningPlayers.toString() + " found the treasure!");
     }
 
+
+    /**
+     * Takes user input to determine amount of players, ensuring it is within specified limits
+     * @param scanner used for user input
+     */
     private void askUserForNumOfPlayers(Scanner scanner) {
 
         int numOfPlayers;
@@ -221,9 +235,19 @@ public class Game {
         }
     }
 
+    /**
+     * @return number of players in game
+     */
+
     private int getNumOfPlayers() {
         return players.length;
     }
+
+
+    /**
+     * Takes user input to determine map size, ensuring it is within specified limits
+     * @param scanner used for user input
+     */
 
     private void askUserForMapSize(Scanner scanner) {
         int mapSize;

@@ -23,13 +23,6 @@ public class Position {
         return y;
     }
 
-    public void setX(int in){
-        x = in;
-    }
-
-    public void setY(int in){
-        y = in;
-    }
 
     /**
      * Two Position objects are considered equal if their x and y coordinates match.
