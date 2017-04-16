@@ -7,7 +7,9 @@ public class Player {
     ArrayList<Position> discoveredPositions = new ArrayList<Position>();
 
     public Player(Map map) {
-        setPosition(map.getRandomStartPosition());
+        startPosition = map.getRandomStartPosition();
+        currentPosition = startPosition;
+        discoveredPositions.add(currentPosition);
     }
 
     /**
