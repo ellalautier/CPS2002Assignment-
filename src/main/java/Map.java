@@ -4,7 +4,7 @@ public class Map {
     public int size;
 
     boolean isOutOfBounds(Position position) {
-        return false;
+        return position.x < 0 || position.y < 0 || position.x >= size || position.y >= size;
     }
 
     /**
