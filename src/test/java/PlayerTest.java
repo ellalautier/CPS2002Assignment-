@@ -25,7 +25,7 @@ public class PlayerTest {
 
     @Test
     public void playerConstructorTestStartingPositionAddedToDiscoveredPositions() {
-        assertTrue(player.discoveredPositions.contains(player.startPosition));
+	    assertTrue(player.discoveredTiles[player.startPosition.x][player.startPosition.y]);
     }
 
     @Test

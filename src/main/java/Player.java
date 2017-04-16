@@ -1,15 +1,26 @@
-import java.lang.Math;
-import java.util.ArrayList;
-
 public class Player {
     Position currentPosition;
     public Position startPosition;
-    ArrayList<Position> discoveredPositions = new ArrayList<Position>();
+    public boolean[][] discoveredTiles;  // true means the tile at this position in the map has been discovered by this player
 
+    /**
+     * Marks a position as discovered - sets the boolean corresponding to this position in the discoveredTiles array
+     * to true.
+     * @param position Position in the map to discover.
+     */
+    private void discover(Position position) {
+        discoveredTiles[position.x][position.y] = true;
+    }
+
+    /**
+     * Initialises the player to a random starting position (grass tile) on the provided map.
+     * @param map Map on which to place player.
+     */
     public Player(Map map) {
+        discoveredTiles = new boolean[map.size][map.size];  // default values are false (no tiles discovered so far)
         startPosition = map.getRandomStartPosition();
         currentPosition = startPosition;
-        discoveredPositions.add(currentPosition);
+        discover(currentPosition);
     }
 
     /**

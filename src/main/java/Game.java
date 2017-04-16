@@ -24,12 +24,11 @@ public class Game {
         return false;
     }
 
+    String getTableHTMLForPlayer(Player player) {
 
-
-
-
-
-
+        //player.discoveredTiles
+        return null;
+    }
 
     /**
      * Generates an HTML file for each player.  Filename: map_player_n.html (where n is the player number.)
@@ -37,7 +36,7 @@ public class Game {
      * i.e. each  player  sees  the  tiles  he/she has discovered so far, as well as his/her current position.
      */
     void generateHTMLFiles() {
-        String beforeBody = "<!DOCTYPE html>\n" +
+        String beforeTitle = "<!DOCTYPE html>\n" +
                 "<html lang=\"en\">\n" +
                 "<head>\n" +
                 "    <meta charset=\"UTF-8\">\n" +
@@ -59,25 +58,30 @@ public class Game {
                 "        table {\n" +
                 "            border-collapse: collapse;\n" +
                 "        }\n" +
-                "    </style>\n" +
-                "    <title>Player 1 - Treasure Game Map</title>\n" +
-                "</head>\n" +
-                "<body>";
+                "    </style>\n";
+        String afterTitleUpToBody = "</head>\n" + "<body>";
         String innerBody = "";
         String afterBody = "</body>\n" + "</html>";
         //for (Player player : players) {
 
         //}
 
-        try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter("map_player_n.html"));
-            bw.write(beforeBody);
-            bw.write(innerBody);
-            bw.write(afterBody);
-            bw.close();
-        } catch (IOException e) {
-            System.err.println("Error writing player's map file.");
-            e.printStackTrace();
+        for (int i = 0; i < players.length; i++) {
+            int playerNo = i + 1;
+            String title = "<title>Player " + playerNo + " - Treasure Game Map</title>";
+
+            try {
+                BufferedWriter bw = new BufferedWriter(new FileWriter("map_player_n.html"));
+                bw.write(beforeTitle);
+                bw.write(title);
+                bw.write(afterTitleUpToBody);
+                bw.write(innerBody);
+                bw.write(afterBody);
+                bw.close();
+            } catch (IOException e) {
+                System.err.println("Error writing player's map file.");
+                e.printStackTrace();
+            }
         }
     }
 
@@ -149,7 +153,7 @@ public class Game {
 
 
     /**
-     * Instantiates the Player objects, and sets a random starting position (on a grass tile) for each.
+     * Instantiates the Player objects - each player gets a starting position on a random grass tile.
      */
     void initialisePlayers() {
         for (Player player : players) {
@@ -163,10 +167,13 @@ public class Game {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Treasure Game");
+        // set up game parameters (user inputted)
         game.askUserForNumOfPlayers(scanner);
         game.askUserForMapSize(scanner);
+        // set up map, initialise players to starting positions
         game.map.generate();
         game.initialisePlayers();
+
         game.startGame();
     }
 
