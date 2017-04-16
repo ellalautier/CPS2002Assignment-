@@ -30,10 +30,44 @@ public class Game {
      * @return String containing the HTML table code
      */
     String getTableHTMLForPlayer(Player player) {
+        String table = "<table>";
 
+        for (int y = 0; y < map.size; y++) {
+            String row = "<tr>";
+            for (int x = 0; x < map.size; x++) {
+                Position position = new Position(x, y);
+                String cssClass;
+                String cell;
 
-        //player.discoveredTiles
-        return "";
+                if (player.hasDiscovered(position)) {
+                    switch (map.getTileType(x, y)) {
+                        case 'g':
+                            cssClass = "grass";
+                            break;
+                        case 'w':
+                            cssClass = "water";
+                            break;
+                        case 't':
+                            cssClass = "treasure";
+                            break;
+                        default:
+                            cssClass = "";  // should not occur
+                            break;
+                    }
+                } else {
+                    cssClass = "hidden";
+                }
+
+                cell = "<td class = \"" + cssClass + "\">" + (player.isAt(position) ? "O" : "") + "</td>";
+                row += cell;
+            }
+            row += "</tr>";
+            table += row;
+        }
+
+        table += "</table>";
+
+        return table;
     }
 
     /**
@@ -160,8 +194,8 @@ public class Game {
      * Instantiates the Player objects - each player gets a starting position on a random grass tile.
      */
     void initialisePlayers() {
-        for (Player player : players) {
-            player = new Player(map);
+        for (int i = 0; i < players.length; i++) {
+            players[i] = new Player(map);
         }
     }
 

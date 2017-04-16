@@ -4,6 +4,23 @@ public class Player {
     public boolean[][] discoveredTiles;  // true means the tile at this position in the map has been discovered by this player
 
     /**
+     * @param position
+     * @return True if player's current position matches given position, false otherwise.
+     */
+    public boolean isAt(Position position) {
+        return position.x == currentPosition.x && position.y == currentPosition.y;
+    }
+
+    /**
+     *
+     * @param position
+     * @return True if player has discovered tile at given position, false otherwise.
+     */
+    public boolean hasDiscovered(Position position) {
+        return discoveredTiles[position.x][position.y];
+    }
+
+    /**
      * Marks a position as discovered - sets the boolean corresponding to this position in the discoveredTiles array
      * to true.
      * @param position Position in the map to discover.
