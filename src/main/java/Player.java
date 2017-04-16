@@ -1,23 +1,13 @@
 import java.lang.Math;
 import java.util.ArrayList;
+
 public class Player {
-
-
-    public Position p;
-    public Position startPos;
-
+    Position currentPosition;
+    public Position startPosition;
     ArrayList<Position> discoveredPositions = new ArrayList<Position>();
 
-    public void setStartPosition(Map m){
-        int x = (int)(Math.random()*m.size);
-        int y = (int)(Math.random()*m.size);
-        while(m.getTileType(x,y)!='g'){             //ensures grass tile
-            x = (int)(Math.random()*m.size);
-            y = (int)(Math.random()*m.size);
-        }
-
-        startPos = new Position(x, y);
-        p = startPos;
+    public Player(Map map) {
+        setPosition(map.getRandomStartPosition());
     }
 
     /**
@@ -36,5 +26,4 @@ public class Player {
     boolean setPosition(Position p) {
         return false;
     }
-
 }

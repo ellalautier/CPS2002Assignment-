@@ -153,8 +153,7 @@ public class Game {
      */
     void initialisePlayers() {
         for (Player player : players) {
-            player = new Player();
-            player.setStartPosition(map);
+            player = new Player(map);
         }
     }
 
