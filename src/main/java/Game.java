@@ -126,11 +126,18 @@ public class Game {
     }
 
     /**
-     * @param direction Character representing direction ('U' -> up, 'D, -> down, 'L' -> left, 'R' -> right)
+     * @param directionString Should contain character representing direction ('U' -> up, 'D, -> down, 'L' -> left, 'R' -> right)
      * @return true if valid direction ('U', 'D', 'L', or 'R'), false otherwise.
      */
-    boolean isValidDirection(char direction) {
-        return direction == 'U' || direction == 'D' || direction == 'L' || direction == 'R';
+    boolean isValidDirection(String directionString) {
+        char direction;
+        if (directionString.length() != 1) {
+            return false;
+        } else {
+            direction = directionString.toUpperCase().charAt(0);
+            return direction == 'U' || direction == 'D' || direction == 'L' || direction == 'R';
+        }
+
     }
 
     /**
@@ -141,23 +148,24 @@ public class Game {
      * @param scanner Scanner object - used to get character representing desired move direction from user.
      */
     private char getValidMoveFromPlayer(Player player, int playerNo, Scanner scanner) {
-        char direction = 'z'; // dummy initial value
+        String directionInput = " "; // dummy initial value
+
         boolean valid = false;
         System.out.print("Player " + playerNo + "'s move: " );
 
         while (!valid) {
-            direction = scanner.nextLine().toUpperCase().charAt(0);
+            directionInput = scanner.nextLine().toUpperCase();
 
-            if (!isValidDirection(direction)) {
+            if (!isValidDirection(directionInput)) {
                 System.out.print("Move can only be U (up), D (down), L (left), or R (right).  Try again: ");
-            } else if (player.moveIsOutOfMap(direction, map)) {
+            } else if (player.moveIsOutOfMap(directionInput.charAt(0), map)) {
                 System.out.println("This move would be out of the map.  Try another direction: ");
             } else {
                 valid = true;
             }
         }
 
-        return direction;
+        return directionInput.charAt(0);
     }
 
 

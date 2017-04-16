@@ -50,10 +50,10 @@ public class Player {
         if (!moveIsOutOfMap(direction, map)) {
             switch (direction) {
                 case 'U':
-                    currentPosition.y++;
+                    currentPosition.y--;
                     break;
                 case 'D':
-                    currentPosition.y--;
+                    currentPosition.y++;
                     break;
                 case 'L':
                     currentPosition.x--;
