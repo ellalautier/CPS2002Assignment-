@@ -1,11 +1,11 @@
-public class Player {
-    Map map;
+class Player {
+    private final Map map;
     Position currentPosition;
-    public Position startPosition;
-    public boolean[][] discoveredTiles;  // true means the tile at this position in the map has been discovered by this player
+    public final Position startPosition;
+    public final boolean[][] discoveredTiles;  // true means the tile at this position in the map has been discovered by this player
 
     /**
-     * @param position
+     * @param position Method checks if player is currently at this position.
      * @return True if player's current position matches given position, false otherwise.
      */
     public boolean isAt(Position position) {
@@ -13,8 +13,7 @@ public class Player {
     }
 
     /**
-     *
-     * @param position
+     * @param position Method checks if the player has discovered the tile at this position.
      * @return True if player has discovered tile at given position, false otherwise.
      */
     public boolean hasDiscovered(Position position) {
@@ -24,6 +23,7 @@ public class Player {
     /**
      * Marks a position as discovered - sets the boolean corresponding to this position in the discoveredTiles array
      * to true.
+     *
      * @param position Position in the map to discover.
      */
     private void discover(Position position) {
@@ -39,6 +39,7 @@ public class Player {
 
     /**
      * Initialises the player to a random starting position (grass tile) on the provided map.
+     *
      * @param map Map on which to place player.
      */
     public Player(Map map) {
@@ -51,6 +52,7 @@ public class Player {
 
     /**
      * Moves the player by one tile in the direction specified.
+     *
      * @param direction Direction to move in - 'U' -> up, 'D, -> down, 'L' -> left, 'R' -> right
      */
     void move(char direction) {
@@ -96,10 +98,11 @@ public class Player {
 
     /**
      * Sets the player's position.
-     * @param p  Position to set.
+     *
+     * @param p Position to set.
      * @return true: setting position was successful, false: not successful - position out of bounds of the map.
      */
-    boolean setPosition(Position p) {
+    private boolean setPosition(Position p) {
         if (map.isOutOfBounds(p)) {
             return false;
         } else {

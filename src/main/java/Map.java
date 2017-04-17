@@ -1,5 +1,5 @@
 
-public class Map {
+class Map {
     public char[][] mapArray;
     public int size;
 

@@ -1,5 +1,4 @@
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -93,13 +92,5 @@ public class PlayerTest {
         player.move('R');
         assertEquals(expectedCurrentPosition, player.currentPosition);
     }
-
-	@Test
-	public void setPositionTestNotOutOfBounds() {
-		//position = new Position(0, 0);
-		
-		//assertTrue(player.setPosition(position));
-		//assertFalse(player.setPosition(new Position(6, 6)));
-	}
 
 }

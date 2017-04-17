@@ -5,7 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class GameTest {
-    public Game game;
+    private Game game;
 
     @Before
     public void setUp() {

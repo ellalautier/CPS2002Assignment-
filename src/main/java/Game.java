@@ -5,12 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Game {
-    int turns;
+class Game {
     Player[] players;
-    Map map = new Map();
-    static final int MIN_PLAYERS = 2;
-    static final int MAX_PLAYERS = 8;
+    private final Map map = new Map();
+    private static final int MIN_PLAYERS = 2;
+    private static final int MAX_PLAYERS = 8;
 
 
     /**
@@ -33,7 +32,7 @@ public class Game {
      * @param player The player whose map
      * @return String containing the HTML table code
      */
-    String getTableHTMLForPlayer(Player player) {
+    private String getTableHTMLForPlayer(Player player) {
         String table = "<table>";
 
         for (int y = 0; y < map.size; y++) {
@@ -80,7 +79,7 @@ public class Game {
      * Each HTML file contains a table representing the map from the perspective of the corresponding user.
      * i.e. each  player  sees  the  tiles  he/she has discovered so far, as well as his/her current position.
      */
-    void generateHTMLFiles() {
+    private void generateHTMLFiles() {
         String beforeTitle = "<!DOCTYPE html>\n" +
                 "<html lang=\"en\">\n" +
                 "<head>\n" +
@@ -133,7 +132,7 @@ public class Game {
      * @param directionString Should contain character representing direction ('U' -> up, 'D, -> down, 'L' -> left, 'R' -> right)
      * @return true if valid direction ('U', 'D', 'L', or 'R'), false otherwise.
      */
-    boolean isValidDirection(String directionString) {
+    private boolean isValidDirection(String directionString) {
         char direction;
         if (directionString.length() != 1) {
             return false;
@@ -178,7 +177,7 @@ public class Game {
      * @param scanner used for input
      */
 
-    void startGame(Scanner scanner) {
+    private void startGame(Scanner scanner) {
         boolean treasureFound = false;
         List<Integer> winningPlayers = new ArrayList<Integer>();
         int round = 1;
@@ -271,7 +270,7 @@ public class Game {
     /**
      * Instantiates the Player objects - each player gets a starting position on a random grass tile.
      */
-    void initialisePlayers() {
+    private void initialisePlayers() {
         for (int i = 0; i < players.length; i++) {
             players[i] = new Player(map);
         }
