@@ -205,6 +205,7 @@ class Game {
             round++;
         }
 
+        generateHTMLFiles();
         System.out.println("Players " + winningPlayers.toString() + " found the treasure!");
     }
 
