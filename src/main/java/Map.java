@@ -1,5 +1,5 @@
 
-class Map {
+abstract class Map {
     public char[][] mapArray;
     public int size;
 
@@ -40,56 +40,7 @@ class Map {
      * Creates map in the form of a 2D character array
      * first selects the treasure map coordinates then fills the rest randomly with water and grass tiles
      */
-    void generate(){
-        mapArray = new char[size][size];
-        int t_x = (int)(Math.random()*size);
-        int t_y = (int)(Math.random()*size);
-        mapArray[t_x][t_y] = 't';
-
-        for(int i = 0; i<size; i++){
-            for(int j = 0; j<size; j++)
-                if (mapArray[i][j] != 't') {
-                    int v = (int) (Math.random()*2);
-                    if (v == 0) mapArray[i][j] = 'g';
-                    else mapArray[i][j] = 'w';
-                }
-        }
-
-        //this loop is used to ensure every grass tile can reach the treasure
-        for(int i = 0; i<size; i++) {
-            for (int j = 0; j < size; j++) {
-                if (mapArray[i][j] == 'g' || mapArray[i][j] == 't') {
-                    int[] adj = {i - 1, i + 1, j - 1, j + 1};
-                    int adjNo = 0;
-                    for (int k = 0; k < 4; k++) {
-                        if (k < 2) {
-                            if ((adj[k] >= 0 && adj[k] < size) && (mapArray[adj[k]][j] != 'w')) adjNo++;
-                        } else {
-                            if ((adj[k] >= 0 && adj[k] < size) && (mapArray[i][adj[k]] != 'w')) adjNo++;
-                        }
-                    }
-
-                    if (adjNo < 2) {
-                        int q = adjNo;
-                        while (q != 2) {
-                            int p = (int) (Math.random() * 4);
-                            if (p < 2) {
-                                if ((adj[p] >= 0 && adj[p] < size) && (mapArray[adj[p]][j] == 'w')) {
-                                    mapArray[adj[p]][j] = 'g';
-                                    q++;
-                                }
-                            } else {
-                                if ((adj[p] >= 0 && adj[p] < size) && (mapArray[i][adj[p]] == 'w')) {
-                                    mapArray[i][adj[p]] = 'g';
-                                    q++;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
+    abstract void generate();
 
     /**
      * returns the type of tile

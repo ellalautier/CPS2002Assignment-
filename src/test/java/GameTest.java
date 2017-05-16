@@ -12,6 +12,12 @@ public class GameTest {
         game = new Game();
     }
 
+
+    @After
+    public void tearDown() {
+        game = null;
+    }
+
     @Test
     public void testSetNumPlayers2Min() {
         assertFalse(game.setNumPlayers(1));
@@ -38,8 +44,15 @@ public class GameTest {
         assertEquals(numOfPlayers, actualLength);
     }
 
-    @After
-    public void tearDown(){
-        game = null;
+    @Test
+    public void testSetMapType1(){
+        assertTrue(game.setMapType(1));
     }
+
+    @Test
+    public void testSetMapType2(){
+        assertFalse(game.setMapType(3));
+    }
+
+
 }

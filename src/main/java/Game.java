@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 class Game {
     Player[] players;
-    private final Map map = new Map();
+    private Map map = null;
     private static final int MIN_PLAYERS = 2;
     private static final int MAX_PLAYERS = 8;
 
@@ -277,11 +277,52 @@ class Game {
         }
     }
 
+
+    private void getMapTypeFromUser(Scanner scanner){
+        int mapType;
+        boolean success = false;
+        System.out.print("Input 0 for safe map or 1 for hazardous map: ");
+        while (!success) {
+            try {
+                mapType = Integer.parseInt(scanner.nextLine());
+                success = setMapType(mapType);
+
+                if (!success)
+                    System.err.print("Invalid input, try again: ");
+
+            } catch (NumberFormatException e) {
+                System.err.print("Not a valid number. Try again: ");
+            }
+        }
+    }
+    
+
+    public boolean setMapType(int input){
+        if(input!= 0 && input != 1){
+            return false;
+        }else{
+            map = makeMap(input);
+            return true;
+        }
+    }
+
+    public static Map makeMap(int input){
+        switch (input){
+            case 0:
+                return new SafeMap();
+            case 1:
+                return new HazardousMap();
+            default:
+                return null;
+        }
+    }
+
     public static void main(String[] args){
         Game game = new Game();
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Treasure Game");
+        game.getMapTypeFromUser(scanner);
         // set up game parameters (user inputted)
         game.askUserForNumOfPlayers(scanner);
         game.askUserForMapSize(scanner);
