@@ -2,7 +2,55 @@
 abstract class Map {
     public char[][] mapArray;
     public int size;
+    private static Map theMap = null;  // Singleton Map instance.
+    public enum Type {SAFE, HAZARDOUS};
+    private static Type mapType;
 
+    public static boolean isIntantiated() {
+        return !(theMap == null);
+    }
+
+    private static Map makeMap(Type mapType){
+        switch (mapType){
+            case SAFE:
+                return SafeMap.getInstance();
+            case HAZARDOUS:
+                return HazardousMap.getInstance();
+            default:
+                return null;
+        }
+    }
+
+    //Map.getInstance();
+
+    /**
+     * Sets the map type.  Can only be set before the map has been instantiated.
+     * @param mapType type to set
+     * @return true if successful, false if not - i.e. if map has already been instantiated, so cannot change the type.
+     */
+    public static boolean setMapType(Type mapType) {
+        if (theMap == null) {
+            Map.mapType = mapType;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Returns the map instance.  Creates a map instance before returning it if one has not already been created and a
+     * map type has been set.
+     * @return The map instance, or null if a type has not been set
+     */
+    public static Map getInstance() {
+        if (mapType == null)
+            return null;
+        else if (theMap == null) {
+            theMap = makeMap(mapType);
+        }
+
+        return theMap;
+    }
 
     /**
      * Checks if Position object is out of bounds

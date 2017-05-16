@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 class Player {
     private final Map map;
     Position currentPosition;

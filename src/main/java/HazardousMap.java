@@ -1,4 +1,12 @@
 public class HazardousMap extends Map{
+    private HazardousMap() {}
+
+    public static Map getInstance() {
+        if (!Map.isIntantiated())
+            return new HazardousMap();
+        else
+            return null;
+    }
 
     @Override
     void generate(){

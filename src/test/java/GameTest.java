@@ -44,8 +44,8 @@ public class GameTest {
         assertEquals(numOfPlayers, actualLength);
     }
 
-    @Test
-    public void testSetMapType1(){
+    //@Test
+    /*public void testSetMapType1(){
         assertTrue(game.setMapType(1));
     }
 
@@ -54,5 +54,5 @@ public class GameTest {
         assertFalse(game.setMapType(3));
     }
 
-
+*/
 }

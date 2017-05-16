@@ -7,7 +7,6 @@ import java.util.Scanner;
 
 class Game {
     Player[] players;
-    private Map map = null;
     private static final int MIN_PLAYERS = 2;
     private static final int MAX_PLAYERS = 8;
 
@@ -35,16 +34,16 @@ class Game {
     private String getTableHTMLForPlayer(Player player) {
         StringBuilder table = new StringBuilder("<table>");
 
-        for (int y = 0; y < map.size; y++) {
+        for (int y = 0; y < Map.getInstance().size; y++) {
             StringBuilder row = new StringBuilder("<tr>");
-            for (int x = 0; x < map.size; x++) {
+            for (int x = 0; x < Map.getInstance().size; x++) {
                 Position position = new Position(x, y);
 
                 String cssClass;
                 String cell;
 
                 if (player.hasDiscovered(position)) {
-                    switch (map.getTileType(x, y)) {
+                    switch (Map.getInstance().getTileType(x, y)) {
                         case 'g':
                             cssClass = "grass";
                             break;
@@ -162,7 +161,7 @@ class Game {
 
             if (!isValidDirection(directionInput)) {
                 System.out.print("Move can only be U (up), D (down), L (left), or R (right).  Try again: ");
-            } else if (player.moveIsOutOfMap(directionInput.charAt(0), map)) {
+            } else if (player.moveIsOutOfMap(directionInput.charAt(0), Map.getInstance())) {
                 System.out.print("This move would be out of the map.  Try another direction: ");
             } else {
                 valid = true;
@@ -256,7 +255,7 @@ class Game {
         while (!success) {
             try {
                 mapSize = Integer.parseInt(scanner.nextLine());
-                success = map.setMapSize(mapSize, getNumOfPlayers());
+                success = Map.getInstance().setMapSize(mapSize, getNumOfPlayers());
 
                 if (!success)
                     System.err.print("2-4 players: minimum map size is 5x5.  5-8 players: minimum map size is 8x8.  Try again: ");
@@ -273,7 +272,7 @@ class Game {
      */
     private void initialisePlayers() {
         for (int i = 0; i < players.length; i++) {
-            players[i] = new Player(map);
+            players[i] = new Player(Map.getInstance());
         }
     }
 
@@ -285,37 +284,20 @@ class Game {
         while (!success) {
             try {
                 mapType = Integer.parseInt(scanner.nextLine());
-                success = setMapType(mapType);
+                success = mapType > 0 && mapType < Map.Type.values().length;
 
-                if (!success)
+                if (success)
+                    Map.setMapType(mapType == 0 ? Map.Type.SAFE : Map.Type.HAZARDOUS);
+                else
                     System.err.print("Invalid input, try again: ");
+
 
             } catch (NumberFormatException e) {
                 System.err.print("Not a valid number. Try again: ");
             }
         }
     }
-    
 
-    public boolean setMapType(int input){
-        if(input!= 0 && input != 1){
-            return false;
-        }else{
-            map = makeMap(input);
-            return true;
-        }
-    }
-
-    public static Map makeMap(int input){
-        switch (input){
-            case 0:
-                return new SafeMap();
-            case 1:
-                return new HazardousMap();
-            default:
-                return null;
-        }
-    }
 
     public static void main(String[] args){
         Game game = new Game();
@@ -327,7 +309,7 @@ class Game {
         game.askUserForNumOfPlayers(scanner);
         game.askUserForMapSize(scanner);
         // set up map, initialise players to starting positions
-        game.map.generate();
+        Map.getInstance().generate();
         game.initialisePlayers();
 
         game.startGame(scanner);
