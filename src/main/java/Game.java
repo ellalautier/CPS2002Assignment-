@@ -33,10 +33,10 @@ class Game {
      * @return String containing the HTML table code
      */
     private String getTableHTMLForPlayer(Player player) {
-        String table = "<table>";
+        StringBuilder table = new StringBuilder("<table>");
 
         for (int y = 0; y < map.size; y++) {
-            String row = "<tr>";
+            StringBuilder row = new StringBuilder("<tr>");
             for (int x = 0; x < map.size; x++) {
                 Position position = new Position(x, y);
 
@@ -62,15 +62,15 @@ class Game {
                     cssClass = "hidden";
                 }
                 cell = "<td class = \"" + cssClass + "\">" + (player.isAt(position) ? "O" : "") + "</td>";
-                row += cell;
+                row.append(cell);
             }
-            row += "</tr>";
-            table += row;
+            row.append("</tr>");
+            table.append(row);
         }
 
-        table += "</table>";
+        table.append("</table>");
 
-        return table;
+        return table.toString();
     }
 
 
