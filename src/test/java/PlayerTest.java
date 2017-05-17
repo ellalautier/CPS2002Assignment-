@@ -6,6 +6,7 @@ import static org.junit.Assert.*;
 
 public class PlayerTest {
 	private Player player;
+    private Team team;
 
 	@Before
     public void setUp() {
@@ -13,11 +14,13 @@ public class PlayerTest {
         Map.getInstance().setMapSize(50, 4);
         Map.getInstance().generate();
         player = new Player(Map.getInstance());
+        team = new Team(0);
     }
 
     @After
     public void tearDown() {
 	    player = null;
+        team = null;
     }
 
     @Test
@@ -89,6 +92,13 @@ public class PlayerTest {
         player.currentPosition = new Position(30, 30);
         player.move('R');
         assertEquals(expectedCurrentPosition, player.currentPosition);
+    }
+
+    @Test
+    public void addPlayerToTeam(){
+        team.addPlayer(player);
+        player.setTeam(team);
+        assertEquals(player.getTeam(), team);
     }
 
 }

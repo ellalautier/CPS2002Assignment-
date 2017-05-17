@@ -1,6 +1,4 @@
 
-import javafx.geometry.Pos;
-
 import java.util.ArrayList;
 
 public class Team {

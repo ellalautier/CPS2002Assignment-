@@ -57,6 +57,7 @@ class Player {
 
     }
 
+
     /**
      * Moves the player by one tile in the direction specified.
      *
@@ -108,6 +109,7 @@ class Player {
     }
 
 
+
     private void sendPosition(Position p){
         team.sendPosition(p);
     }
@@ -143,9 +145,6 @@ class Player {
     }
 
 
-    public int getPlayerID(){
-        return playerID;
-    }
 
     public void setTeam(Team team){
         this.team = team;
