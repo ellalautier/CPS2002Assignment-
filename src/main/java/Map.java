@@ -10,6 +10,11 @@ abstract class Map {
         return !(theMap == null);
     }
 
+    // for debugging purposes
+    public static void tearDown() {
+        theMap = null;
+    }
+
     private static Map makeMap(Type mapType){
         switch (mapType){
             case SAFE:

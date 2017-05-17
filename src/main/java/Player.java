@@ -142,11 +142,6 @@ class Player {
         return map.getTileType(currentPosition.x, currentPosition.y) == 'w';
     }
 
-
-    public int getPlayerID(){
-        return playerID;
-    }
-
     public void setTeam(Team team){
         this.team = team;
         team.addPlayer(this);

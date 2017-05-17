@@ -25,4 +25,9 @@ public class HazardousMapTest {
         assertNotEquals(Map.getInstance().mapArray[0], null);
         assertNotEquals(Map.getInstance().mapArray[4], null);
     }
+
+    @After
+    public void tearDown() {
+        Map.tearDown();
+    }
 }

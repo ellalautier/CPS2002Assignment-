@@ -7,15 +7,14 @@ import java.util.Scanner;
 
 class Game {
     Player[] players;
+    List<Team> teams = new ArrayList<Team>();
     private static final int MIN_PLAYERS = 2;
     private static final int MAX_PLAYERS = 8;
-    ArrayList<Team> teamList = new ArrayList<Team>();
-
 
     /**
      * Initialises the players array with size n.  Minimum number of players: 2, max: 8.
      * @param n Number of players
-     * @return true if n is >= minimum number of players, and <= max
+     * @return true if n is >= MIN_PLAYERS and <= MAX_PLAYERS, false otherwise
      */
     boolean setNumPlayers(final int n) {
         if (n >= MIN_PLAYERS && n <= MAX_PLAYERS) {
@@ -25,13 +24,14 @@ class Game {
 
         return false;
     }
-    
-
 
     /**
-     * Generates HTML table code to represent the map as seen by the provided player.
-     * @param player The player whose map
-     * @return String containing the HTML table code
+     * Generates HTML table code to represent the map as seen by the provided player.  Each cell in the table represents
+     * a position on the map.  A circle is drawn on the tile the player is currently at.  CSS classes are used to change
+     * the background colour of a tile according to its type - grey for undiscovered, blue for water, green for grass
+     * and yellow for treasure.
+     * @param player The player whose discovered part of the map this method will generate HTML table code for
+     * @return String containing the HTML table code (including <table></table> tags)
      */
     private String getTableHTMLForPlayer(Player player) {
         StringBuilder table = new StringBuilder("<table>");
@@ -78,7 +78,7 @@ class Game {
     /**
      * Generates an HTML file for each player.  Filename: map_player_n.html (where n is the player number.)
      * Each HTML file contains a table representing the map from the perspective of the corresponding user.
-     * i.e. each  player  sees  the  tiles  he/she has discovered so far, as well as his/her current position.
+     * i.e. each  player  sees  the  tiles he/she has discovered so far, as well as his/her current position.
      */
     private void generateHTMLFiles() {
         String beforeTitle = "<!DOCTYPE html>\n" +
@@ -174,7 +174,8 @@ class Game {
     }
 
     /**
-     * The main game loop, after all necessary objects have been created
+     * The main game loop:  Generate HTML files, ask each player for a valid move, move players.  If player hits water
+     * tile, reset to their start position.  Loops until at least one player has found the treasure.
      * @param scanner used for input
      */
 
@@ -182,6 +183,7 @@ class Game {
         boolean treasureFound = false;
         List<Integer> winningPlayers = new ArrayList<Integer>();
         int round = 1;
+
         generateHTMLFiles();
         System.out.println("Game starting ...");
 
@@ -324,22 +326,18 @@ class Game {
             }
 
             for(int i = 0; i<teams; i++){
-                teamList.add(new Team(i));
+                this.teams.add(new Team(i));
             }
 
             for(int i = 0; i<players.length; i++){
-                int teamNum = i%teamList.size();
-                players[i].setTeam(teamList.get(teamNum));
+                int teamNum = i% this.teams.size();
+                players[i].setTeam(this.teams.get(teamNum));
 
             }
 
         }
 
     }
-
-
-
-
 
     public static void main(String[] args){
         Game game = new Game();
@@ -358,7 +356,7 @@ class Game {
 
         game.teamOption(scanner);
 
-        if(!game.teamList.isEmpty()){
+        if(!game.teams.isEmpty()){
             for(int i = 0; i<game.players.length; i++){
                 game.players[i].getTeam().sendPosition(game.players[i].startPosition);
             }
