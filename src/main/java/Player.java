@@ -81,7 +81,9 @@ class Player {
             }
         }
         discover(currentPosition);
-        sendPosition(currentPosition);
+        if(team!=null) {
+            sendPosition(currentPosition);
+        }
     }
 
     /**
