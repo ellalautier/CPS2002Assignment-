@@ -1,7 +1,9 @@
 import java.util.ArrayList;
 
 class Player {
+    private int playerID;
     private final Map map;
+    private Team team = null;
     Position currentPosition;
     public final Position startPosition;
     public final boolean[][] discoveredTiles;  // true means the tile at this position in the map has been discovered by this player
@@ -28,7 +30,7 @@ class Player {
      *
      * @param position Position in the map to discover.
      */
-    private void discover(Position position) {
+    public void discover(Position position) {
         discoveredTiles[position.x][position.y] = true;
     }
 
@@ -50,6 +52,8 @@ class Player {
         startPosition = map.getRandomStartPosition();
         setPosition(startPosition);
         discover(currentPosition);
+        this.team = null;
+
     }
 
     /**
@@ -77,6 +81,7 @@ class Player {
             }
         }
         discover(currentPosition);
+        sendPosition(currentPosition);
     }
 
     /**
@@ -98,17 +103,23 @@ class Player {
         }
     }
 
+
+    private void sendPosition(Position p){
+        team.sendPosition(p);
+    }
+
     /**
      * Sets the player's position.
      *
      * @param p Position to set.
      * @return true: setting position was successful, false: not successful - position out of bounds of the map.
      */
-    private boolean setPosition(Position p) {
+    public boolean setPosition(Position p) {
         if (map.isOutOfBounds(p)) {
             return false;
         } else {
             currentPosition = new Position(p);
+
             return true;
         }
     }
@@ -126,4 +137,16 @@ class Player {
     public boolean hasDied() {
         return map.getTileType(currentPosition.x, currentPosition.y) == 'w';
     }
+
+
+    public int getPlayerID(){
+        return playerID;
+    }
+
+    public void setTeam(Team team){
+        this.team = team;
+        team.addPlayer(this);
+    }
+
+
 }

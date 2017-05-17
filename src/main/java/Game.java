@@ -9,6 +9,7 @@ class Game {
     Player[] players;
     private static final int MIN_PLAYERS = 2;
     private static final int MAX_PLAYERS = 8;
+    ArrayList<Team> teamList = new ArrayList<Team>();
 
 
     /**
@@ -285,7 +286,7 @@ class Game {
         while (!success) {
             try {
                 mapType = Integer.parseInt(scanner.nextLine());
-                success = mapType > 0 && mapType < Map.Type.values().length;
+                success = mapType >= 0 && mapType < Map.Type.values().length;
 
                 if (success)
                     Map.setMapType(mapType == 0 ? Map.Type.SAFE : Map.Type.HAZARDOUS);
@@ -300,6 +301,39 @@ class Game {
     }
 
 
+
+    private void teamOption(Scanner scanner){
+        int input = -1;
+        System.out.println("Would you like to play in team mode. 1 for yes, 0 for no");
+        input  = Integer.parseInt(scanner.nextLine());
+        while(input !=1 && input != 0){
+            input  = Integer.parseInt(scanner.nextLine());
+            System.out.println("Error: Invalid input");
+        }
+
+        if(input == 1){
+            int teams = -1;
+            System.out.println("How many teams shall the players be split up in?");
+            teams  = Integer.parseInt(scanner.nextLine());
+            while(!(teams >= 2) && !(teams<players.length)){
+                System.out.println("Invalid input. Try again: ");
+                teams  = Integer.parseInt(scanner.nextLine());
+            }
+
+            for(int i = 0; i<teams; i++){
+                teamList.add(new Team(i));
+            }
+
+            for(int i = 0; i<players.length; i++){
+                int teamNum = i%teamList.size();
+                players[i].setTeam(teamList.get(teamNum));
+
+            }
+
+        }
+
+    }
+
     public static void main(String[] args){
         Game game = new Game();
         Scanner scanner = new Scanner(System.in);
@@ -308,10 +342,13 @@ class Game {
         game.getMapTypeFromUser(scanner);
         // set up game parameters (user inputted)
         game.askUserForNumOfPlayers(scanner);
+
         game.askUserForMapSize(scanner);
         // set up map, initialise players to starting positions
         Map.getInstance().generate();
         game.initialisePlayers();
+
+        game.teamOption(scanner);
 
         game.startGame(scanner);
     }
