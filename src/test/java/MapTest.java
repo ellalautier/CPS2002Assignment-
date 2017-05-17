@@ -9,16 +9,6 @@ public class MapTest {
     public void setUp() {
         Map.setMapType(Map.Type.SAFE);  // in this test class, we're testing behaviour common to all Map subtypes, so
         // the type doesn't really make a difference here
-        //Map.getInstance().setMapSize(50, 5);
-        /*Map.getInstance().setMapSize(20, 2);
-        Map.getInstance().generate();
-        Map.getInstance().generate();*/
-    }
-
-
-    @After
-    public void tearDown() {
-        Map.tearDown();
     }
 
     @Test
@@ -66,6 +56,8 @@ public class MapTest {
     @Test
     public void getRandomStartPositionTest() {
         char expectedTileType = 'g';
+        Map.getInstance().setMapSize(50, 5);
+        Map.getInstance().generate();
         Position startPosition = Map.getInstance().getRandomStartPosition();
         char actualTileType = Map.getInstance().getTileType(startPosition.getX(), startPosition.getY());
         assertEquals(expectedTileType, actualTileType);
@@ -96,5 +88,10 @@ public class MapTest {
         Map.getInstance().setMapSize(50, 5);
         Map.getInstance().generate();
         assertFalse(Map.getInstance().isOutOfBounds(new Position(30, 30)));
+    }
+
+    @After
+    public void tearDown() {
+        Map.tearDown();
     }
 }
