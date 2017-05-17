@@ -214,8 +214,9 @@ class Game {
 
 
     /**
-     * Takes user input to determine amount of players, ensuring it is within specified limits
-     * @param scanner used for user input
+     * Asks user for number of players.  Retries until a valid number is given (within min and max range.)
+     * Calls setNumPlayers( ) when a valid number is given.
+     * @param scanner Used for user input
      */
     private void userSetNumOfPlayers(Scanner scanner) {
         int numOfPlayers;
@@ -247,8 +248,8 @@ class Game {
 
 
     /**
-     * Takes user input to determine map size, ensuring it is within specified limits
-     * @param scanner used for user input
+     * Asks user for map size.  Retries until a valid number is given.  Calls Map's setMapSize( ).
+     * @param scanner Used for user input
      */
 
     private void userSetMapSize(Scanner scanner) {
@@ -277,11 +278,12 @@ class Game {
         for (int i = 0; i < players.length; i++) {
             players[i] = new Player(Map.getInstance());
         }
-
-
     }
 
-
+    /**
+     * Asks user for map type.  Retries until a valid option is given.  Calls Map's setMapType( ).
+     * @param scanner Used for user input
+     */
     private void userSetMapType(Scanner scanner){
         int mapType;
         boolean success = false;
@@ -305,10 +307,13 @@ class Game {
         }
     }
 
-
-
+    /**
+     * Asks user if team mode is to be used.  TODO complete this comment
+     * @param scanner Used for user input
+     */
     private void teamOption(Scanner scanner){
         int input;
+
         System.out.println("Would you like to play in team mode. 1 for yes, 0 for no");
         input  = Integer.parseInt(scanner.nextLine());
         while(input !=1 && input != 0){
@@ -339,6 +344,11 @@ class Game {
 
     }
 
+    /**
+     * The program entry-point.  Gets map type, number of players, map size, team option from the user.  Instantiates
+     * and generates the map, initialises the players, and starts the game.
+     * @param args Program arguments are not used
+     */
     public static void main(String[] args){
         Game game = new Game();
         Scanner scanner = new Scanner(System.in);

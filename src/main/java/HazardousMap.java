@@ -1,4 +1,7 @@
-public class HazardousMap extends Map{
+public class HazardousMap extends Map {
+    /**
+     *
+     */
     private HazardousMap() {}
 
     public static Map getInstance() {
