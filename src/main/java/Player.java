@@ -32,6 +32,7 @@ class Player {
      */
     public void discover(Position position) {
         discoveredTiles[position.x][position.y] = true;
+
     }
 
     /**
@@ -84,6 +85,7 @@ class Player {
         if(team!=null) {
             sendPosition(currentPosition);
         }
+
     }
 
     /**
@@ -150,5 +152,8 @@ class Player {
         team.addPlayer(this);
     }
 
+    public Team getTeam(){
+        return this.team;
+    }
 
 }

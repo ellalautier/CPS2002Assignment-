@@ -276,6 +276,8 @@ class Game {
         for (int i = 0; i < players.length; i++) {
             players[i] = new Player(Map.getInstance());
         }
+
+
     }
 
 
@@ -334,6 +336,10 @@ class Game {
 
     }
 
+
+
+
+
     public static void main(String[] args){
         Game game = new Game();
         Scanner scanner = new Scanner(System.in);
@@ -349,6 +355,12 @@ class Game {
         game.initialisePlayers();
 
         game.teamOption(scanner);
+
+        if(!game.teamList.isEmpty()){
+            for(int i = 0; i<game.players.length; i++){
+                game.players[i].getTeam().sendPosition(game.players[i].startPosition);
+            }
+        }
 
         game.startGame(scanner);
     }
