@@ -18,7 +18,7 @@ public class Team {
         return playerList.size();
     }
 
-    void sendPosition(Position p){
+    public void sendPosition(Position p){
             for(int i = 0; i<playerList.size(); i++){
                     playerList.get(i).discover(p);
 
