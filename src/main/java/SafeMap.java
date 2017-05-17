@@ -2,7 +2,7 @@ public class SafeMap extends Map {
     private SafeMap() { }
 
     public static Map getInstance() {
-        if (!Map.isIntantiated())
+        if (!Map.isInstantiated())
             return new SafeMap();
         else
             return null;

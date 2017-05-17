@@ -6,7 +6,7 @@ abstract class Map {
     public enum Type {SAFE, HAZARDOUS};
     private static Type mapType;
 
-    public static boolean isIntantiated() {
+    public static boolean isInstantiated() {
         return !(theMap == null);
     }
 

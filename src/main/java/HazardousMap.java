@@ -2,7 +2,7 @@ public class HazardousMap extends Map{
     private HazardousMap() {}
 
     public static Map getInstance() {
-        if (!Map.isIntantiated())
+        if (!Map.isInstantiated())
             return new HazardousMap();
         else
             return null;
