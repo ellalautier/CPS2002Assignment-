@@ -1,9 +1,12 @@
-public class HazardousMap extends Map {
+class HazardousMap extends Map {
     /**
-     *
+     * Constructor made private to ensure that there can only be one instance of map at any given time (singleton).
      */
     private HazardousMap() {}
 
+    /**
+     * @return New HazardousMap if a map has not already been instantiated, otherwise null.
+     */
     public static Map getInstance() {
         if (!Map.isInstantiated())
             return new HazardousMap();
@@ -11,6 +14,9 @@ public class HazardousMap extends Map {
             return null;
     }
 
+    /**
+     * Generates map with between  25%  and  35%  water  tiles.
+     */
     @Override
     void generate(){
         mapArray = new char[size][size];

@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 class Game {
     Player[] players;
-    List<Team> teams = new ArrayList<Team>();
+    private final List<Team> teams = new ArrayList<Team>();
     private static final int MIN_PLAYERS = 2;
     private static final int MAX_PLAYERS = 8;
 
@@ -308,7 +308,9 @@ class Game {
     }
 
     /**
-     * Asks user if team mode is to be used.  TODO complete this comment
+     * Asks user if team mode is to be used.  Retries until a valid number of teams is given - there must be at least
+     * two teams, and more teams than players.  If so, distributes players into teams in turn eg. if there are 3 players
+     * and 2 teams, Player 1 is assigned to Team 1, Player 2 to Team 2, and Player 3 to Team 1.
      * @param scanner Used for user input
      */
     private void teamOption(Scanner scanner){
@@ -331,7 +333,7 @@ class Game {
             }
 
             for(int i = 0; i<teams; i++){
-                this.teams.add(new Team(i));
+                this.teams.add(new Team());
             }
 
             for(int i = 0; i<players.length; i++){

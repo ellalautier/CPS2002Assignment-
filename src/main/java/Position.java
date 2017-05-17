@@ -1,6 +1,11 @@
 public class Position {
     int x, y;
 
+    /**
+     * Constructor - initialises position.
+     * @param x Horizontal coordinate (0 based)
+     * @param y Vertical coordinate (0 based)
+     */
     public Position(int x, int y) {
         this.x = x;
         this.y = y;
@@ -15,10 +20,16 @@ public class Position {
         this.y = p.y;
     }
 
+    /**
+     * @return X coordinate
+     */
     public int getX(){
         return x;
     }
 
+    /**
+     * @return Y coordinate
+     */
     public int getY(){
         return y;
     }

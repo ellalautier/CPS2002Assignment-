@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 class Player {
     private final Map map;
     private Team team = null;
@@ -26,7 +24,6 @@ class Player {
     /**
      * Marks a position as discovered - sets the boolean corresponding to this position in the discoveredTiles array
      * to true.
-     *
      * @param position Position in the map to discover.
      */
     public void discover(Position position) {
@@ -35,7 +32,7 @@ class Player {
     }
 
     /**
-     * Resets current position to where the player started (startPosition)
+     * Sets current position to the player's start position.
      */
     public void resetPosition() {
         setPosition(startPosition);
@@ -43,7 +40,6 @@ class Player {
 
     /**
      * Initialises the player to a random starting position (grass tile) on the provided map.
-     *
      * @param map Map on which to place player.
      */
     public Player(Map map) {
@@ -55,7 +51,6 @@ class Player {
         this.team = null;
 
     }
-
 
     /**
      * Moves the player by one tile in the direction specified.
@@ -107,8 +102,10 @@ class Player {
         }
     }
 
-
-
+    /**
+     * Sends the given position to the team. (Mediator pattern.)
+     * @param p Position to send to the team.
+     */
     private void sendPosition(Position p){
         team.sendPosition(p);
     }
@@ -119,7 +116,7 @@ class Player {
      * @param p Position to set.
      * @return true: setting position was successful, false: not successful - position out of bounds of the map.
      */
-    public boolean setPosition(Position p) {
+    private boolean setPosition(Position p) {
         if (map.isOutOfBounds(p)) {
             return false;
         } else {
@@ -143,11 +140,18 @@ class Player {
         return map.getTileType(currentPosition.x, currentPosition.y) == 'w';
     }
 
+    /**
+     * Sets the player's team.
+     * @param team Team to add player to.
+     */
     public void setTeam(Team team){
         this.team = team;
         team.addPlayer(this);
     }
 
+    /**
+     * @return Player's team.
+     */
     public Team getTeam(){
         return this.team;
     }

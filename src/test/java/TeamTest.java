@@ -18,7 +18,7 @@ public class TeamTest {
         Map.getInstance().generate();
         player1 = new Player(Map.getInstance());
         player2 = new Player(Map.getInstance());
-        team = new Team(0);
+        team = new Team();
         p = new Position(0,0);
     }
 

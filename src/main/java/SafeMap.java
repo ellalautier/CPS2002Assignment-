@@ -1,6 +1,12 @@
-public class SafeMap extends Map {
+class SafeMap extends Map {
+    /**
+     * Constructor made private to ensure that there can only be one instance of map at any given time (singleton).
+     */
     private SafeMap() { }
 
+    /**
+     * @return New SafeMap if a map has not already been instantiated, otherwise null.
+     */
     public static Map getInstance() {
         if (!Map.isInstantiated())
             return new SafeMap();
@@ -8,6 +14,9 @@ public class SafeMap extends Map {
             return null;
     }
 
+    /**
+     * Generates map with a  maximum  of  10%  water  tiles.
+     */
     @Override
     void generate(){
         mapArray = new char[size][size];

@@ -14,7 +14,7 @@ public class PlayerTest {
         Map.getInstance().setMapSize(50, 4);
         Map.getInstance().generate();
         player = new Player(Map.getInstance());
-        team = new Team(0);
+        team = new Team();
     }
 
     @After

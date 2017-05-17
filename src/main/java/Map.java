@@ -1,20 +1,30 @@
-
 abstract class Map {
     public char[][] mapArray;
     public int size;
     private static Map theMap = null;  // Singleton Map instance.
-    public enum Type {SAFE, HAZARDOUS};
+    public enum Type {SAFE, HAZARDOUS}
     private static Type mapType;
 
-    public static boolean isInstantiated() {
+    /**
+     * @return true if the map has been instantiated, false otherwise
+     */
+    static boolean isInstantiated() {
         return !(theMap == null);
     }
 
-    // for debugging purposes
+    /**
+     * Tears down the map instance.  NB: This is used for testing purposes only (in SafeMapTest and HazardousMapTest)
+     */
     public static void tearDown() {
         theMap = null;
     }
 
+    /**
+     * Factory method to instantiate the map for the first time.
+     * @param mapType Map type
+     * @return New instance of Map subclass according to the given type, or null if the Map has already been
+     * instantiated or if an invalid type is given.
+     */
     private static Map makeMap(Type mapType){
         switch (mapType){
             case SAFE:
@@ -25,8 +35,6 @@ abstract class Map {
                 return null;
         }
     }
-
-    //Map.getInstance();
 
     /**
      * Sets the map type.  Can only be set before the map has been instantiated.
@@ -43,8 +51,8 @@ abstract class Map {
     }
 
     /**
-     * Returns the map instance.  Creates a map instance before returning it if one has not already been created and a
-     * map type has been set.
+     * Returns the map instance.  Creates a map instance before returning it, if one has not already been created and
+     * provided a map type has been set.
      * @return The map instance, or null if a type has not been set
      */
     public static Map getInstance() {
@@ -58,9 +66,9 @@ abstract class Map {
     }
 
     /**
-     * Checks if Position object is out of bounds
+     * Checks if given Position is out of the bounds of the map.
      * @param position Position to be tested
-     * @return true if out of range, false if valid
+     * @return True if out of bounds, false if not
      */
 
     boolean isOutOfBounds(Position position) {
@@ -90,16 +98,16 @@ abstract class Map {
     }
 
     /**
-     * Creates map in the form of a 2D character array
-     * first selects the treasure map coordinates then fills the rest randomly with water and grass tiles
+     * Generates map by filling the 2D character array mapArray with characters to represent different tile types:
+     * 'g' - grass, 'w' - water, 't' - treasure.
      */
     abstract void generate();
 
     /**
-     * returns the type of tile
-     * @param x horizontal coordinate
-     * @param y vertical coordinate
-     * @return type of tile: either 'g', 'w' or 't'÷
+     * Returns the type of the tile in the map array at the given coordinates.
+     * @param x horizontal coordinate (0 based)
+     * @param y vertical coordinate (0 based)
+     * @return Type of tile: either 'g', 'w' or 't' for grass, water, treasure respectively.
      */
 
     char getTileType(int x, int y){

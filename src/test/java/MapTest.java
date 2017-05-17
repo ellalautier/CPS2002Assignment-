@@ -18,6 +18,7 @@ public class MapTest {
 
     @After
     public void tearDown() {
+        Map.tearDown();
     }
 
     @Test
