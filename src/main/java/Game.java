@@ -308,7 +308,7 @@ class Game {
 
 
     private void teamOption(Scanner scanner){
-        int input = -1;
+        int input;
         System.out.println("Would you like to play in team mode. 1 for yes, 0 for no");
         input  = Integer.parseInt(scanner.nextLine());
         while(input !=1 && input != 0){

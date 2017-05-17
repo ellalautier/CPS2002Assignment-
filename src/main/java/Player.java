@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 
 class Player {
-    private int playerID;
     private final Map map;
     private Team team = null;
     Position currentPosition;
@@ -57,6 +56,7 @@ class Player {
 
     }
 
+
     /**
      * Moves the player by one tile in the direction specified.
      *
@@ -106,6 +106,7 @@ class Player {
                 return false;
         }
     }
+
 
 
     private void sendPosition(Position p){
