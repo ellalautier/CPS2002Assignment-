@@ -215,8 +215,7 @@ class Game {
      * Takes user input to determine amount of players, ensuring it is within specified limits
      * @param scanner used for user input
      */
-    private void askUserForNumOfPlayers(Scanner scanner) {
-
+    private void userSetNumOfPlayers(Scanner scanner) {
         int numOfPlayers;
         boolean success = false;
 
@@ -250,7 +249,7 @@ class Game {
      * @param scanner used for user input
      */
 
-    private void askUserForMapSize(Scanner scanner) {
+    private void userSetMapSize(Scanner scanner) {
         int mapSize;
         boolean success = false;
         System.out.print("Input map size n (for an n x n map): ");
@@ -281,10 +280,12 @@ class Game {
     }
 
 
-    private void getMapTypeFromUser(Scanner scanner){
+    private void userSetMapType(Scanner scanner){
         int mapType;
         boolean success = false;
+
         System.out.print("Input 0 for safe map or 1 for hazardous map: ");
+
         while (!success) {
             try {
                 mapType = Integer.parseInt(scanner.nextLine());
@@ -345,11 +346,12 @@ class Game {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Treasure Game");
-        game.getMapTypeFromUser(scanner);
-        // set up game parameters (user inputted)
-        game.askUserForNumOfPlayers(scanner);
 
-        game.askUserForMapSize(scanner);
+        // set up game parameters (user inputted)
+        game.userSetMapType(scanner);
+        game.userSetNumOfPlayers(scanner);
+        game.userSetMapSize(scanner);
+
         // set up map, initialise players to starting positions
         Map.getInstance().generate();
         game.initialisePlayers();
